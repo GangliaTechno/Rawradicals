@@ -1,21 +1,20 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import "./index.css";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
-import Home from "./components/Home";
-
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
+import Home from './pages/Home';
+import Navbar from './components/Navbar';
+import OurTeam from "./pages/Ourteam";
+import AboutBrand from "./pages/AboutBrand";
 function App() {
   return (
-    <>
     <BrowserRouter>
       <Navbar />
+      <div className="App">
       <Routes>
-      <Route path="/" element={ <Home/>}>
-     
-      </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/ourteam" element={<OurTeam />} />
+        <Route path="/aboutbrand" element={<AboutBrand />} />
       </Routes>
-      </BrowserRouter>
-    </>
+      </div>
+    </BrowserRouter>
   );
 }
 
