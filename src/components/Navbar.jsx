@@ -1,19 +1,38 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { FaSearch, FaUser, FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   return (
-    <nav className="bg-blue-600 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-white text-xl font-bold">Raw radicals</h1>
-        <div className="flex ml-auto">
-          <p><Link to="" className="text-white hover:underline">About</Link></p>
-          <p><Link to="" className="text-white hover:underline">Services</Link></p>
-          <p><Link to="" className="text-white hover:underline">Home</Link></p>
-          <p><Link to="" className="text-white hover:underline">Contact</Link></p>
+    <header className="group shadow-md fixed w-screen top-0 z-50 transition-all duration-300 bg-white hover:bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex items-center space-x-2">
+            <span className="text-2xl font-bold text-black group-hover:text-black">Raw radicals</span>
+          </div>
+
+          {/* Navigation Links */}
+          <nav className="hidden md:flex space-x-6 text-sm font-medium text-black group-hover:text-black">
+            <a href="#" className="hover:text-black">Home</a>
+            <a href="#" className="hover:text-black">About Us</a>
+            <a href="/Products" className="hover:text-black">Products</a>
+            <a href="#" className="hover:text-black">Contact Us</a>
+          </nav>
+
+          {/* Icons */}
+          <div className="flex items-center space-x-4">
+            <button className="text-black group-hover:text-black">
+              <FaSearch />
+            </button>
+            <button className="text-black group-hover:text-black">
+              <FaUser />
+            </button>
+            <button className="text-black group-hover:text-black relative">
+              <FaShoppingCart />
+            </button>
+          </div>
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 
