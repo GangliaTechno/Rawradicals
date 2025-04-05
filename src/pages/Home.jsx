@@ -1,9 +1,8 @@
-import Navbar from '../components/Navbar';
-import background from '../assets/blackBackground.jpg';
-import product1 from '../assets/avurveda_1.png'; // Update with correct paths
-import product2 from '../assets/avurveda_2.png'; // Update with correct paths
-import product3 from '../assets/avurveda_3.png';
-import wallpaper_2 from '../assets/wallpaper_2.png'; 
+import background from '/images/blackBackground.jpg';
+import product1 from '/images/avurveda_1.png'; // Update with correct paths
+import product2 from '/images/avurveda_2.png'; // Update with correct paths
+import product3 from '/images/avurveda_3.png';
+import wallpaper_2 from '/images/wallpaper_2.png'; 
 
 const Home = () => {
   return (
