@@ -9,8 +9,8 @@ function App() {
       <Navbar />
       <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/auth" element={<Auth/>} />
+        <Route path="/" element={<Auth/>} />
+        <Route path="/home" element={<Home/>} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
       </div>

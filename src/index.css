@@ -2,3 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 @import "tailwindcss";
+
+
+/* Add this at the top of your index.css or App.css file */
+
+@keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .animate-marquee {
+    animation: marquee 5s linear infinite;
+  }

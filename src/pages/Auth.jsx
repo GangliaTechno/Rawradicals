@@ -48,9 +48,22 @@ export default function Auth() {
     e.preventDefault();
     if (validate()) {
       console.log(isLogin ? 'Logging in...' : 'Signing up...');
-      navigate('/'); // ✅ Redirect to homepage
+      if (isLogin) {
+        navigate('/home');
+      } else {
+        // Navigate to login page after sign up
+        setIsLogin(true); // switch to login mode
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          password: '',
+        });
+        setErrors({});
+      }
     }
   };
+  
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
