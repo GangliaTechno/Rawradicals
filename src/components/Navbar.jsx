@@ -28,12 +28,10 @@ const Navbar = () => {
           {/* Navigation Links */}
           <nav className="hidden md:flex space-x-6 text-sm font-medium text-white group-hover:text-black">
             <a href="/" className="hover:text-black">Home</a>
-            <a href="#" className="hover:text-black">About Us</a>
 
-            {/* Products Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button className="hover:text-black hover:cursor-pointer" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                Products
+                About us
               </button>
               {isDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-40 bg-white shadow-md rounded-md">
@@ -43,6 +41,7 @@ const Navbar = () => {
               )}
             </div>
 
+            <a href="#" className="hover:text-black">Products</a>
             <a href="#" className="hover:text-black">Contact Us</a>
           </nav>
 
