@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
@@ -10,7 +9,8 @@ import Blog from './pages/Blogpage';
 import ContactUs from "./pages/ContactUs";
 import Cart from './components/cart';
 import { useState } from 'react';
-
+import Auth from "./pages/Auth";
+import ForgotPassword from "./pages/ForgotPassword";
 function App() {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -25,7 +25,9 @@ function App() {
       <Cart isOpen={isCartOpen} onClose={handleCartClose} />
       <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Auth/>} />
+        <Route path="/home" element={<Home/>} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/ourteam" element={<OurTeam />} />
         <Route path="/aboutbrand" element={<AboutBrand />} />
         <Route path="/Products" element={<Products />} />

@@ -49,7 +49,7 @@ const Navbar = () => {
 
             {/* Navigation Links */}
             <nav className="hidden md:flex space-x-6 text-sm font-medium text-black group-hover:text-black">
-              <a href="/" className="hover:text-black">
+              <a href="/home" className="hover:text-black">
                 Home
               </a>
 
@@ -115,7 +115,7 @@ const Navbar = () => {
           <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"}`}>
             <nav className="flex flex-col space-y-4 text-center bg-white py-4">
               <a
-                href="/"
+                href="/home"
                 className="text-sm font-medium text-black hover:text-gray-600"
               >
                 Home
