@@ -1,16 +1,22 @@
+/* eslint-disable no-unused-vars */
 import { FaSearch, FaUser, FaShoppingCart, FaBars } from "react-icons/fa";
 import { useState } from "react";
+import Cart from "./cart";
 
 const Navbar = () => {
   // State to toggle mobile menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Toggle mobile menu visibility
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  return (
+  const openCart = () => setIsCartOpen(true); // ✅ Open cart
+  const closeCart = () => setIsCartOpen(false); // ✅ Close cart
+
+  return (<>
     <header className="group shadow-md fixed w-screen top-0 z-50 transition-all duration-300 bg-white hover:bg-white">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center h-16">
@@ -35,9 +41,15 @@ const Navbar = () => {
             <button className="text-black group-hover:text-black">
               <FaUser /> {/* Fixed the icon name and closed the tag */}
             </button>
-            <button className="text-black group-hover:text-black relative">
-              <FaShoppingCart />
-            </button>
+            <button
+                // onClick={openCart}
+                onClick={() => {
+                  openCart(); // You can keep this if you want to test cart open too
+                }}
+                className="text-black group-hover:text-black relative cursor-pointer"
+              >
+                <FaShoppingCart />
+              </button>
           </div>
 
 
@@ -60,7 +72,10 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
+     
     </header>
+    <Cart isOpen={isCartOpen} onClose={closeCart} />
+    </>
   );
 };
 

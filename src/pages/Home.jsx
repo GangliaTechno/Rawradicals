@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Navbar from '../components/Navbar';
 import background from '../assets/blackBackground.jpg';
 import product1 from '../assets/avurveda_1.png'; // Update with correct paths
