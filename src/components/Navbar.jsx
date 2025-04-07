@@ -74,7 +74,7 @@ const Navbar = () => {
             <a href="products" className="hover:text-gray-600">
               Products
             </a>
-            <a href="#" className="hover:text-gray-600">
+            <a href="contactus" className="hover:text-gray-600">
               Contact Us
             </a>
           </nav>
