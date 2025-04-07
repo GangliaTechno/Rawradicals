@@ -25,8 +25,8 @@ function App() {
       <Cart isOpen={isCartOpen} onClose={handleCartClose} />
       <div className="App">
       <Routes>
-        <Route path="/" element={<Auth/>} />
-        <Route path="/home" element={<Home/>} />
+        <Route path="/auth" element={<Auth/>} />
+        <Route path="/" element={<Home/>} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/ourteam" element={<OurTeam />} />
         <Route path="/aboutbrand" element={<AboutBrand />} />

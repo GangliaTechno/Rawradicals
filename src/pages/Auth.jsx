@@ -49,7 +49,7 @@ export default function Auth() {
     if (validate()) {
       console.log(isLogin ? 'Logging in...' : 'Signing up...');
       if (isLogin) {
-        navigate('/home');
+        navigate('/');
       } else {
         // Navigate to login page after sign up
         setIsLogin(true); // switch to login mode

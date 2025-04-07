@@ -1,30 +1,36 @@
-import { useState, useEffect, useRef } from "react";
-import { FaSearch, FaUser, FaShoppingCart, FaBars } from "react-icons/fa";
-import Cart from "./cart";
+import { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { FaSearch, FaUser, FaShoppingCart, FaBars } from 'react-icons/fa'
+import Cart from './cart'
 
 const Navbar = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const dropdownRef = useRef(null);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const openCart = () => setIsCartOpen(true);
-  const closeCart = () => setIsCartOpen(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const dropdownRef = useRef(null)
+  const [isCartOpen, setIsCartOpen] = useState(false)
+  const openCart = () => setIsCartOpen(true)
+  const closeCart = () => setIsCartOpen(false)
+  const navigate = useNavigate()
+
+  const handleUserClick = () => {
+    navigate('/auth')
+  }
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+    setIsMenuOpen(!isMenuOpen)
+  }
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
+        setIsDropdownOpen(false)
       }
-    };
+    }
 
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, []);
+    document.addEventListener('click', handleClickOutside)
+    return () => document.removeEventListener('click', handleClickOutside)
+  }, [])
 
   return (
     <>
@@ -41,15 +47,12 @@ const Navbar = () => {
               <div className="text-lg font-bold leading-tight">
                 RAW RADICALS
                 <br />
-                <span className="text-sm font-medium">
-                  TECHNOLOGIES PVT. LTD.
-                </span>
               </div>
             </div>
 
             {/* Navigation Links */}
             <nav className="hidden md:flex space-x-6 text-sm font-medium text-black group-hover:text-black">
-              <a href="/home" className="hover:text-black">
+              <a href="/" className="hover:text-black">
                 Home
               </a>
 
@@ -91,13 +94,16 @@ const Navbar = () => {
               <button className="text-black group-hover:text-black">
                 <FaSearch />
               </button>
-              <button className="text-black group-hover:text-black">
+              <button
+                className="text-black group-hover:text-black"
+                onClick={handleUserClick}
+              >
                 <FaUser />
               </button>
               <button
                 // onClick={openCart}
                 onClick={() => {
-                  openCart(); // You can keep this if you want to test cart open too
+                  openCart() // You can keep this if you want to test cart open too
                 }}
                 className="text-black group-hover:text-black relative cursor-pointer"
               >
@@ -112,10 +118,10 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu (Hidden by default) */}
-          <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"}`}>
+          <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
             <nav className="flex flex-col space-y-4 text-center bg-white py-4">
               <a
-                href="/home"
+                href="/"
                 className="text-sm font-medium text-black hover:text-gray-600"
               >
                 Home
@@ -164,7 +170,7 @@ const Navbar = () => {
       </header>
       <Cart isOpen={isCartOpen} onClose={closeCart} />
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
