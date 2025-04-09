@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { FaThLarge, FaTh } from "react-icons/fa";
 import { MdSort, MdExpandMore, MdExpandLess } from "react-icons/md";
+import ProductModal from "../components/ProductModal";  
 
 const products = [
-  { id: 1, image: "/images/pic1.png" },
-  { id: 2, image: "/images/pic2.png" },
-  { id: 3, image: "/images/pic3.jpeg" },
-  { id: 4, image: "/images/pic1.png" },
-  { id: 5, image: "/images/pic2.png" },
-  { id: 6, image: "/images/pic1.png" },
-  { id: 7, image: "/images/pic2.png" },
-  { id: 8, image: "/images/pic5.jpeg" },
-  { id: 9, image: "/images/pic1.png" },
+  { id: 1, image: "/images/pic1.png", price: 1999 },
+  { id: 2, image: "/images/pic2.png", price: 1999 },
+  { id: 3, image: "/images/pic3.jpeg" , price: 1999},
+  { id: 4, image: "/images/pic1.png" , price: 1999},
+  { id: 5, image: "/images/pic2.png" , price: 1999},
+  { id: 6, image: "/images/pic1.png" , price: 1999},
+  { id: 7, image: "/images/pic2.png" , price: 1999},
+  { id: 8, image: "/images/pic5.jpeg" , price: 1999},
+  { id: 9, image: "/images/pic1.png" , price: 1999},
 ];
 
 export default function ProductPage() {
@@ -23,6 +24,8 @@ export default function ProductPage() {
   const [showSort, setShowSort] = useState(false);
   const [showMobileFilter, setShowMobileFilter] = useState(false);
   const [sortOption, setSortOption] = useState("Sort By");
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const sortOptions = [
     "Featured",
@@ -281,8 +284,7 @@ export default function ProductPage() {
           </div>
         </aside>
 
-        {/* Products Display */}
-<main className="w-full lg:w-3/4">
+        <main className="w-full lg:w-3/4">
   <div
     className={`grid gap-6 ${
       view === "grid3"
@@ -302,15 +304,28 @@ export default function ProductPage() {
         />
         {/* + Button */}
         <button
-          className="absolute bottom-4 right-4 w-8 h-8  bg-white text-black text-lg font-bold flex items-center justify-center shadow-md hover:bg-gray-50 transition"
-          onClick={() => alert(`Added product ${product.id}`)}
-        >
-          +
-        </button>
+  className="absolute bottom-4 right-4 w-8 h-8 bg-white text-black text-lg font-bold flex items-center justify-center shadow-md hover:bg-gray-50 transition"
+  onClick={() => {
+    setSelectedProduct(product);
+    setShowModal(true);
+  }}
+>
+  +
+</button>
+
       </div>
     ))}
   </div>
+
+  {/* Product Modal */}
+  {selectedProduct && (
+    <ProductModal
+      product={selectedProduct}
+      onClose={() => setSelectedProduct(null)}
+    />
+  )}
 </main>
+
 
       </div>
     </div>
