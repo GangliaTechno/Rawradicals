@@ -12,7 +12,7 @@ const RawRadicalsFooter = () => {
         <div className="flex flex-col space-y-2">
         <div className="flex items-center space-x-3">
          <img 
-        src="/images/logo.png" 
+        src="/images/logo_2.png" 
         alt="Raw Radicals Logo" 
         className="h-30 w-30 rounded-full bg-white p-1" 
             />

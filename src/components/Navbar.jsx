@@ -34,8 +34,8 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="group shadow-md fixed w-screen top-0 z-50 transition-all duration-300 bg-white hover:bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header className="group shadow-md fixed w-screen top-0 z-100 transition-all duration-300 bg-white hover:bg-white">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Left: Logo and Brand */}
             <div className="flex items-center space-x-3">
@@ -53,7 +53,7 @@ const Navbar = () => {
             {/* Navigation Links */}
             <nav className="hidden md:flex space-x-6 text-sm font-medium text-black group-hover:text-black">
               <a href="/" className="hover:text-black">
-                Home
+                HOME
               </a>
 
               <div className="relative" ref={dropdownRef}>
@@ -61,7 +61,7 @@ const Navbar = () => {
                   className="hover:text-black hover:cursor-pointer"
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 >
-                  About us
+                  ABOUT US
                 </button>
                 {isDropdownOpen && (
                   <div className="absolute left-0 mt-2 w-40 bg-white shadow-md rounded-md">
@@ -69,23 +69,23 @@ const Navbar = () => {
                       href="/ourteam"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Our Team
+                      OUR TEAM
                     </a>
                     <a
                       href="/aboutbrand"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      About Brand
+                      ABOUT TEAM
                     </a>
                   </div>
                 )}
               </div>
 
               <a href="products" className="hover:text-black">
-                Products
+                PRODUCTS
               </a>
               <a href="contactus" className="hover:text-black">
-                Contact Us
+                CONTACT US
               </a>
             </nav>
 
