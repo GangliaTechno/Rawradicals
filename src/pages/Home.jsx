@@ -36,8 +36,8 @@ const Home = () => {
       {/* Products Section */}
 <div className="bg-white py-16">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 className="text-3xl font-bold text-center mb-12">
-      All Products Collections
+    <h2 className="text-3xl  text-center mb-12">
+      ALL PRODUCTS COLLECTION
     </h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {[1, 2, 3].map((i) => (
@@ -89,8 +89,8 @@ const Home = () => {
     {/* Categories Section */}
 <div className="py-16 bg-white">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 className="text-3xl font-bold text-center mb-12 text-black">
-      Shop by Categories
+    <h2 className="text-3xl  text-center mb-12 text-black">
+      SHOP BY CATEGORIES
     </h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {[1, 2, 3].map((i) => (
