@@ -32,50 +32,48 @@ const Home = () => {
         </SwiperSlide>
       </Swiper>
 
+      
       {/* Products Section */}
-      <div className="bg-white py-16">
+<div className="bg-white py-16">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 className="text-3xl font-bold text-center mb-12">
       All Products Collections
     </h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {[1, 2, 3].map((i) => (
-        <div
-          key={i}
-          className="bg-gray-100 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 flex flex-col justify-between"
-        >
+        <div key={i} className="flex flex-col items-center text-center">
           <img
             src={`/images/avurveda_${i}.png`}
             alt={`Product ${i}`}
             className="w-full h-72 object-cover"
           />
-          <div className="p-4 flex flex-col gap-3">
-            <h3 className="text-xl font-semibold">Product {i}</h3>
-            <p className="text-gray-600">
-              From ${i === 3 ? '885.00' : '395.00'} USD
-            </p>
+          <h3 className="text-xl font-semibold mt-4">Product {i}</h3>
+          <p className="text-gray-600">
+            From ${i === 3 ? '885.00' : '395.00'} USD
+          </p>
+          {/* Animated Button */}
+          <button
+            type="button"
+            className="relative mt-4 inline-block px-6 py-3 overflow-hidden text-sm font-medium text-white border border-black group"
+          >
+            {/* Black sliding background */}
+            <span className="absolute inset-0 bg-black transition-all duration-300 ease-in-out transform -translate-x-full group-hover:translate-x-0"></span>
 
-            {/* 🔘 Animated Shop Button */}
-            <button
-              type="button"
-              className="relative w-full py-3 rounded-md text-lg overflow-hidden group border border-black bg-black mt-4"
-            >
-              <span className="absolute inset-0 bg-black transition-all duration-300 ease-in translate-x-0 group-hover:translate-x-full"></span>
-              <span className="absolute inset-0 bg-gray-100 transition-all duration-300 -translate-x-full group-hover:translate-x-0"></span>
-              <span className="relative z-10 text-white group-hover:text-black transition duration-300">
-                Shop Now
-              </span>
-            </button>
-          </div>
+            {/* Text on top */}
+            <span className="relative z-10 group-hover:text-white text-black transition duration-300">
+              Shop Now
+            </span>
+          </button>
+
+
         </div>
       ))}
     </div>
   </div>
 </div>
 
-
-      {/* Scrolling Marquee */}
-      <div className="bg-black text-white py-2 overflow-hidden whitespace-nowrap">
+  {/* Scrolling Marquee */}
+  <div className="bg-black text-white py-2 overflow-hidden whitespace-nowrap">
         <div className="marquee flex animate-marquee">
           {Array(16)
             .fill('RAW RADICALS')
@@ -87,46 +85,46 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Categories Section */}
-      <div className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12 text-black">
-            Shop by Categories
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-  {[1, 2, 3].map((i) => (
-    <div
-      key={i}
-      className="bg-gray-100 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 flex flex-col justify-between"
-    >
-      <img
-        src={`/images/avurveda_${i}.png`}
-        alt={`Product ${i}`}
-        className="w-full h-72 object-cover"
-      />
-      <div className="p-4 flex flex-col gap-3">
-        <h3 className="text-xl font-semibold">Product {i}</h3>
-        <p className="text-gray-600">
-          From ${i === 3 ? '885.00' : '395.00'} USD
-        </p>
 
-        {/* Animated Button */}
-        <button
-          type="button"
-          className="relative w-full py-3 rounded-md text-lg overflow-hidden group border border-black bg-black mt-4"
-        >
-          <span className="absolute inset-0 bg-black transition-all duration-300 ease-in translate-x-0 group-hover:translate-x-full"></span>
-          <span className="absolute inset-0 bg-gray-100 transition-all duration-300 -translate-x-full group-hover:translate-x-0"></span>
-          <span className="relative z-10 text-white group-hover:text-black transition duration-300">
-            Shop Now
-          </span>
-        </button>
-      </div>
+    {/* Categories Section */}
+<div className="py-16 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl font-bold text-center mb-12 text-black">
+      Shop by Categories
+    </h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[1, 2, 3].map((i) => (
+        <div key={i} className="flex flex-col items-center text-center">
+          <img
+            src={`/images/avurveda_${i}.png`}
+            alt={`Product ${i}`}
+            className="w-full h-72 object-cover"
+          />
+          <h3 className="text-xl font-semibold mt-4 text-black">
+            Product {i}
+          </h3>
+          <p className="text-gray-600">
+            From ${i === 3 ? '885.00' : '395.00'} USD
+          </p>
+
+          {/* Animated Button */}
+          <button
+            type="button"
+            className="relative mt-4 inline-block px-6 py-3 overflow-hidden text-sm font-medium text-white border border-black group"
+          >
+            {/* Black sliding background */}
+            <span className="absolute inset-0 bg-black transition-all duration-300 ease-in-out transform -translate-x-full group-hover:translate-x-0"></span>
+
+            {/* Text on top */}
+            <span className="relative z-10 group-hover:text-white text-black transition duration-300">
+              Shop Now
+            </span>
+          </button>
+        </div>
+      ))}
     </div>
-  ))}
+  </div>
 </div>
-
-      </div>
 
       {/* Wallpaper Image */}
       <div className="py-4">
@@ -170,7 +168,7 @@ const Home = () => {
         </div>
       </div>
     </div>
-    </div>
+    
 
   )
 }

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom"; // Removed BrowserRouter and Router conflict
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -19,6 +19,8 @@ import 'swiper/css/navigation';
 import { Navigation, Autoplay } from 'swiper/modules';
 
 
+import ProductsDetails from "./components/ProductDetails"; // Make sure the filename is correct
+
 function App() {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -28,20 +30,20 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <Navbar /> */}
       <Navbar onCartClick={handleCartOpen} />
       <Cart isOpen={isCartOpen} onClose={handleCartClose} />
       <div className="App">
-      <Routes>
-        <Route path="/auth" element={<Auth/>} />
-        <Route path="/" element={<Home/>} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/ourteam" element={<OurTeam />} />
-        <Route path="/aboutbrand" element={<AboutBrand />} />
-        <Route path="/Products" element={<Products />} />
-        <Route path="/blog" element={<Blog/>}/>
-        <Route path="/contactus" element={<ContactUs/>}/>
-      </Routes>
+        <Routes>
+          <Route path="/auth" element={<Auth/>} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/ourteam" element={<OurTeam />} />
+          <Route path="/aboutbrand" element={<AboutBrand />} />
+          <Route path="/Products" element={<Products />} />
+          <Route path="/blog" element={<Blog/>}/>
+          <Route path="/contactus" element={<ContactUs/>}/>
+          <Route path="/productDetails/:id" element={<ProductsDetails />} /> {/* Ensure the path and component name match */}
+        </Routes>
       </div>
       <Footer />
     </BrowserRouter>

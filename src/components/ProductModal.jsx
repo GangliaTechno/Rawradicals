@@ -15,7 +15,7 @@ export default function ProductModal({ product, onClose }) {
   if (!product) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 bg-[rgba(0,0,0,0.5)] flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ export default function ProductModal({ product, onClose }) {
       >
         {/* Close Button */}
         <button
-          className="absolute top-4 right-4 text-gray-600 hover:text-black text-xl"
+          className="absolute top-4 right-4 text-black text-2xl hover:opacity-60"
           onClick={onClose}
         >
           ✕
@@ -42,12 +42,12 @@ export default function ProductModal({ product, onClose }) {
           </div>
 
           {/* Product Details */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 text-black">
             <h2 className="text-2xl font-semibold">{product.name}</h2>
-            <div className="text-gray-500 text-sm mb-2">★★★★★ 5.0 (521 Reviews)</div>
-            <p className="text-xl font-bold">${product.price.toFixed(2)} USD</p>
-            <p className="text-sm text-gray-600">
-              4 interest-free installments of <b>${(product.price / 4).toFixed(2)}</b> with Shop Pay
+            <div className="text-sm text-black opacity-60 mb-2">★★★★★ 5.0 (521 Reviews)</div>
+            <p className="text-xl font-bold">₹{product.price.toFixed(2)} Rs</p>
+            <p className="text-sm text-black opacity-60">
+              4 interest-free installments of <b>₹{(product.price / 4).toFixed(2)}</b>
             </p>
 
             {/* Size Selection */}
@@ -57,7 +57,7 @@ export default function ProductModal({ product, onClose }) {
                 {["Carry-On", "Medium", "Large"].map((size) => (
                   <button
                     key={size}
-                    className="border px-4 py-2 rounded hover:bg-gray-200"
+                    className="border border-black text-black px-4 py-2 rounded hover:bg-black hover:text-white transition"
                   >
                     {size}
                   </button>
@@ -65,22 +65,14 @@ export default function ProductModal({ product, onClose }) {
               </div>
             </div>
 
-            {/* Color Selection */}
-            <div className="mt-4">
-              <h3 className="text-sm font-semibold">Color:</h3>
-              <div className="flex gap-2 mt-2">
-                {product.colors.map((color, index) => (
-                  <button key={index} className="border rounded p-1">
-                    <img src={color} alt="Color Option" className="w-10 h-10" />
-                  </button>
-                ))}
-              </div>
-            </div>
-
             {/* Add to Cart */}
-            <button className="w-full bg-blue-600 text-white py-3 rounded mt-4 hover:bg-blue-700 transition">
-              Add to Cart
+            <button className="relative w-full py-3 rounded mt-4 overflow-hidden border border-black group">
+              <span className="absolute inset-0 bg-black transform scale-x-0 origin-right transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+              <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">
+                Add to Cart
+              </span>
             </button>
+
           </div>
         </div>
       </motion.div>
