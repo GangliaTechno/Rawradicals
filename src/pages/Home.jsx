@@ -3,7 +3,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/images/backgroundimage.jpeg')" }}>
       <div className="flex items-center justify-center h-[calc(100vh-64px)] bg-black/25 bg-opacity-50">
-        <h1 className="text-white text-4xl md:text-6xl font-bold text-center">
+        <h1 className="text-white text-4xl md:text-6xl font-bold text-center uppercase tracking-widest">
           Welcome to Raw Radicals
         </h1>
       </div>
@@ -40,6 +40,15 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <div className="flex justify-center mt-8">  
+            <button className="relative w-30 py-3  mt-4 overflow-hidden border border-black group">
+              <span className="absolute inset-0 bg-black transform scale-x-0 origin-right transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+              <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">
+                View All
+              </span>
+            </button>
+          </div>
+          
         </div>
       </div>
 

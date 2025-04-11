@@ -60,9 +60,12 @@ const Cart = ({ isOpen, onClose }) => {
                 <span>Total</span>
                 <span>$65</span>
               </div>
-              <button className="mt-4 w-full bg-black text-white py-2 rounded hover:bg-gray-900 transition">
+              <button className="relative w-full py-3 rounded mt-4 overflow-hidden border border-black group">
+              <span className="absolute inset-0 bg-black transform scale-x-0 origin-right transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+              <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">
                 Checkout
-              </button>
+              </span>
+            </button>
             </div>
 
 
