@@ -34,7 +34,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="group shadow-md fixed w-screen top-0 z-100 transition-all duration-300 bg-white hover:bg-white">
+      <header className="group shadow-md fixed w-screen top-0 z-100 transition-all duration-300 bg-white hover:bg-white uppercase tracking-widest">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Left: Logo and Brand */}
@@ -44,7 +44,7 @@ const Navbar = () => {
                 alt="Raw Radicals Logo"
                 className="h-12 w-12 rounded-full bg-white p-1"
               />
-              <div className="text-lg font-bold leading-tight">
+              <div className="text-lg font-bold leading-tight uppercase tracking-widest">
                 RAW RADICALS
               </div>
             </div>

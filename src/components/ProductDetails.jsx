@@ -126,14 +126,14 @@ export default function ProductDetails() {
   if (!product) return null;
 
   return (
-    <div className="bg-gray-100 text-black min-h-screen pt-24 px-4 md:px-16 pb-16">
+    <div className="bg-gray-100 text-black min-h-screen pt-24 px-4 md:px-16 pb-16 uppercase tracking-widest text-sm">
       <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-10">
         {/* Product Image */}
         <div className="flex-1">
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-auto bg-gray-100 rounded-xl object-contain "
+            className="w-full h-auto bg-gray-100  object-contain "
           />
         </div>
 
@@ -147,7 +147,7 @@ export default function ProductDetails() {
 
           <button className="relative w-full py-3 rounded mt-4 overflow-hidden border border-black group">
               <span className="absolute inset-0 bg-black transform scale-x-0 origin-right transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
-              <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">
+              <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300 uppercase tracking-widest text-sm">
                 Add to Cart
               </span>
             </button>

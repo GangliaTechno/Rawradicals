@@ -139,7 +139,7 @@ export default function ProductPage() {
   ];
 
   return (
-    <div className="bg-gray-100 text-black min-h-screen p-4 sm:p-6 mt-15">
+    <div className="bg-gray-100 text-black min-h-screen p-4 sm:p-6 mt-15 uppercase tracking-widest">
       {/* Mobile Toolbar */}
       <div className="sm:hidden flex justify-between items-center gap-2 mb-4 border border-gray-700 rounded p-2 shadow bg-gray-100">
         <button
@@ -171,7 +171,7 @@ export default function ProductPage() {
       </div>
 
       {/* Desktop Toolbar */}
-      <div className="hidden sm:flex sticky top-16 bg-gray-100 z-40 mb-4 border border-gray-500 p-3 rounded shadow">
+      <div className="hidden sm:flex sticky top-16 bg-gray-100 z-40 mb-4 border border-gray-500 p-3 ">
         <div className="flex items-center justify-between flex-wrap gap-4 w-full">
           <div className="flex gap-2">
             <button
@@ -222,7 +222,7 @@ export default function ProductPage() {
 
       {/* Slide-in Filter Panel (Mobile) */}
       {showMobileFilter && (
-        <div className="fixed inset-0 z-50 bg-opacity-10 flex justify-end">
+        <div className="fixed inset-0 z-50 bg-opacity-10 flex justify-end uppercase tracking-widest">
           <div className="bg-gray-100 w-3/4 h-full p-4 shadow-lg border-l border-gray-700">
             <div className="flex justify-between items-center mb-4">
               <h2 className="font-semibold uppercase tracking-widest text-sm">Filters</h2>
@@ -317,7 +317,7 @@ export default function ProductPage() {
       {/* Filters + Product Grid */}
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Sidebar */}
-        <aside className="w-full lg:w-1/4 p-4 border border-gray-800 rounded bg-gray-100 hidden sm:block text-black">
+        <aside className="w-full lg:w-1/4 p-4 border border-gray-800  bg-gray-100 hidden sm:block text-black uppercase tracking-widest">
           <h2 className="text-lg font-semibold mb-2">Filters</h2>
           <div className="border-b border-gray-700 pb-2 mb-2">
             <button

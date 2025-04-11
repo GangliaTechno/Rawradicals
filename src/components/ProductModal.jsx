@@ -15,12 +15,12 @@ export default function ProductModal({ product, onClose }) {
   if (!product) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-[rgba(0,0,0,0.5)] flex items-center justify-center">
+    <div className="fixed inset-0 z-50 bg-[rgba(0,0,0,0.5)] flex items-center justify-center uppercase tracking-widest">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
-        className="bg-white w-full max-w-3xl p-6 rounded-lg shadow-lg relative"
+        className="bg-white w-full max-w-3xl p-6  shadow-lg relative"
       >
         {/* Close Button */}
         <button
@@ -37,7 +37,7 @@ export default function ProductModal({ product, onClose }) {
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-auto object-cover rounded"
+              className="w-full h-auto object-cover"
             />
           </div>
 
@@ -53,7 +53,7 @@ export default function ProductModal({ product, onClose }) {
             {/* Size Selection */}
             <div className="mt-4">
               <h3 className="text-sm font-semibold">Size:</h3>
-              <div className="flex gap-2 mt-2">
+              {/* <div className="flex gap-2 mt-2">
                 {["Carry-On", "Medium", "Large"].map((size) => (
                   <button
                     key={size}
@@ -62,11 +62,11 @@ export default function ProductModal({ product, onClose }) {
                     {size}
                   </button>
                 ))}
-              </div>
+              </div> */}
             </div>
 
             {/* Add to Cart */}
-            <button className="relative w-full py-3 rounded mt-4 overflow-hidden border border-black group">
+            <button className="relative w-full py-3 rounded mt-4 overflow-hidden border border-black group uppercase tracking-widest">
               <span className="absolute inset-0 bg-black transform scale-x-0 origin-right transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
               <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">
                 Add to Cart
