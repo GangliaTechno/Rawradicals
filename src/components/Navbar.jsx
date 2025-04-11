@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { FaSearch, FaUser, FaShoppingCart, FaBars } from 'react-icons/fa'
 import Cart from './cart'
 
@@ -34,8 +34,8 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="group shadow-md fixed w-screen top-0 z-50 transition-all duration-300 bg-white hover:bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header className="group shadow-md fixed w-screen top-0 z-100 transition-all duration-300 bg-white hover:bg-white uppercase tracking-widest">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Left: Logo and Brand */}
             <div className="flex items-center space-x-3">
@@ -44,49 +44,48 @@ const Navbar = () => {
                 alt="Raw Radicals Logo"
                 className="h-12 w-12 rounded-full bg-white p-1"
               />
-              <div className="text-lg font-bold leading-tight">
+              <div className="text-lg font-bold leading-tight uppercase tracking-widest">
                 RAW RADICALS
-                <br />
               </div>
             </div>
 
             {/* Navigation Links */}
             <nav className="hidden md:flex space-x-6 text-sm font-medium text-black group-hover:text-black">
-              <a href="/" className="hover:text-black">
-                Home
-              </a>
+              <Link to="/" className="hover:text-black">
+                HOME
+              </Link>
 
               <div className="relative" ref={dropdownRef}>
                 <button
                   className="hover:text-black hover:cursor-pointer"
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 >
-                  About us
+                  ABOUT US
                 </button>
                 {isDropdownOpen && (
                   <div className="absolute left-0 mt-2 w-40 bg-white shadow-md rounded-md">
-                    <a
-                      href="/ourteam"
+                    <Link
+                      to="/ourteam"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Our Team
-                    </a>
-                    <a
-                      href="/aboutbrand"
+                      OUR TEAM
+                    </Link>
+                    <Link
+                      to="/aboutbrand"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      About Brand
-                    </a>
+                      ABOUT TEAM
+                    </Link>
                   </div>
                 )}
               </div>
 
-              <a href="products" className="hover:text-black">
-                Products
-              </a>
-              <a href="contactus" className="hover:text-black">
-                Contact Us
-              </a>
+              <Link to="/products" className="hover:text-black">
+                PRODUCTS
+              </Link>
+              <Link to="/contactus" className="hover:text-black">
+                CONTACT US
+              </Link>
             </nav>
 
             {/* Right: Icons & Hamburger */}
@@ -101,10 +100,7 @@ const Navbar = () => {
                 <FaUser />
               </button>
               <button
-                // onClick={openCart}
-                onClick={() => {
-                  openCart() // You can keep this if you want to test cart open too
-                }}
+                onClick={openCart}
                 className="text-black group-hover:text-black relative cursor-pointer"
               >
                 <FaShoppingCart />
@@ -117,15 +113,15 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Menu (Hidden by default) */}
+          {/* Mobile Menu */}
           <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
             <nav className="flex flex-col space-y-4 text-center bg-white py-4">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-sm font-medium text-black hover:text-gray-600"
               >
                 Home
-              </a>
+              </Link>
 
               <div className="flex flex-col items-center">
                 <button
@@ -136,34 +132,34 @@ const Navbar = () => {
                 </button>
                 {isMobileDropdownOpen && (
                   <div className="flex flex-col space-y-2 mt-2">
-                    <a
-                      href="/ourteam"
+                    <Link
+                      to="/ourteam"
                       className="text-sm text-black hover:text-gray-600"
                     >
                       Our Team
-                    </a>
-                    <a
-                      href="/aboutbrand"
+                    </Link>
+                    <Link
+                      to="/aboutbrand"
                       className="text-sm text-black hover:text-gray-600"
                     >
                       About Brand
-                    </a>
+                    </Link>
                   </div>
                 )}
               </div>
 
-              <a
-                href="products"
+              <Link
+                to="/products"
                 className="text-sm font-medium text-black hover:text-gray-600"
               >
                 Products
-              </a>
-              <a
-                href="contactus"
+              </Link>
+              <Link
+                to="/contactus"
                 className="text-sm font-medium text-black hover:text-gray-600"
               >
                 Contact Us
-              </a>
+              </Link>
             </nav>
           </div>
         </div>

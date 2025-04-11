@@ -11,6 +11,14 @@ import Cart from './components/cart';
 import { useState } from 'react';
 import Auth from "./pages/Auth";
 import ForgotPassword from "./pages/ForgotPassword";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Navigation, Autoplay } from 'swiper/modules';
+
+
 import ProductsDetails from "./components/ProductDetails"; // Make sure the filename is correct
 
 function App() {

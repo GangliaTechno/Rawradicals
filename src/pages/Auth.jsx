@@ -66,12 +66,12 @@ export default function Auth() {
   
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 ">
       <div className="w-full max-w-3xl bg-gray-100 p-10">
-        <h2 className="text-2xl font-semibold text-center text-gray-900">
+        <h2 className="text-2xl font-semibold text-center text-gray-900 tracking-widest">
           {isLogin ? 'LOGIN' : 'SIGN UP'}
         </h2>
-        <p className="text-center text-gray-600 mt-2">
+        <p className="text-center text-gray-600 mt-2 uppercase tracking-widest">
           {isLogin
             ? 'Enter your email and password to login:'
             : 'Please fill in the information below:'}
@@ -193,17 +193,17 @@ export default function Auth() {
           >
             <span className="absolute inset-0 bg-black transition-all duration-300 ease-in translate-x-0 group-hover:translate-x-full"></span>
             <span className="absolute inset-0 bg-gray-100 transition-all duration-300 -translate-x-full group-hover:translate-x-0"></span>
-            <span className="relative z-10 text-white group-hover:text-black transition duration-300">
+            <span className="relative z-10 text-white group-hover:text-black transition duration-300 uppercase tracking-widest">
               {isLogin ? 'LOGIN' : 'CREATE ACCOUNT'}
             </span>
           </button>
         </form>
 
-        <p className="text-center text-gray-600 mt-4">
+        <p className="text-center text-gray-600 mt-4 uppercase tracking-widest">
           {isLogin ? "Don't have an account?" : 'Already have an account?'}
           <button
             type="button"
-            className="font-semibold hover:text-black ml-1"
+            className="font-semibold hover:text-black ml-1 uppercase tracking-widest"
             onClick={() => {
               setIsLogin(!isLogin);
               setErrors({});
