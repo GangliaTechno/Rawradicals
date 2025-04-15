@@ -57,10 +57,10 @@ const Navbar = () => {
 
               <div className="relative" ref={dropdownRef}>
                 <button
-                  className="hover:text-black hover:cursor-pointer"
+                  className="hover:text-black hover:cursor-pointer uppercase tracking-widest"
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 >
-                  ABOUT US
+                 <p className="uppercase tracking-widest">ABOUT US</p> 
                 </button>
                 {isDropdownOpen && (
                   <div className="absolute left-0 mt-2 w-40 bg-white shadow-md rounded-md">
@@ -89,8 +89,8 @@ const Navbar = () => {
             </nav>
 
             {/* Right: Icons & Hamburger */}
-            <div className="flex items-center space-x-4">
-              <button className="text-black group-hover:text-black">
+            <div className="flex items-center space-x-7">
+              <button className="text-black group-hovr:text-black">
                 <FaSearch />
               </button>
               <button

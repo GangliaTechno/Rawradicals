@@ -24,7 +24,7 @@ const ContactUs = () => {
       {/* Imported Navbar */}
 
       {/* Main Contact Section with added padding-top */}
-      <main className="container mx-auto px-4 pt-20 py-8 flex-grow">
+      <main className="container mx-auto px-4 pt-20 py-8 flex-grow uppercase tracking-widest">
         <h2 className="text-3xl font-bold text-center mb-8">Contact Us</h2>
         <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md border border-gray-200">
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -91,7 +91,7 @@ const ContactUs = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-black text-white px-6 py-3 rounded transition transform duration-300 hover:bg-gray-800 hover:scale-105 cursor-pointer"
+                className="bg-black text-white px-6 py-3 rounded transition transform duration-300 hover:bg-gray-800 hover:scale-105 cursor-pointer text-sm uppercase tracking-widest"
               >
                 Send Message
               </button>
