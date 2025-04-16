@@ -1,52 +1,51 @@
-// RawRadicalsFooter.js
-
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaEnvelope } from "react-icons/fa"; 
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
 
 const RawRadicalsFooter = () => {
   return (
-    <footer className="bg-black py-8 px-6 md:px-12 border-t">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
-        
-        {/* Brand & Contact */}
-        <div className="flex flex-col space-y-2">
-        <div className="flex items-center space-x-3">
-         <img 
-        src="/images/logo_2.png" 
-        alt="Raw Radicals Logo" 
-        className="h-40 w-40" 
+    <footer className="bg-black py-6 px-4 md:px-8 border-t">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
+
+         {/* Logo & Name */}
+         <div className="flex flex-col items-start space-y-2">
+          <div className="flex items-center space-x-3">
+            <img 
+              src="/images/logo_2.png" 
+              alt="Raw Radicals Logo" 
+              className="h-20 w-20 object-contain" 
             />
-            <div className="text-lg font-bold leading-tight">
-                    RAW RADICALS<br />
-                <span className="text-sm font-medium">TECHNOLOGIES PVT. LTD.</span>
+            <div className="text-sm font-semibold leading-tight text-white">
+              RAW RADICALS<br />
+              <span className="text-xs font-normal">TECHNOLOGIES PVT. LTD.</span>
             </div>
-         </div>
-          <p className="text-sm text-white">Phone: (+91) 81097 82903</p>
-          <p className="text-sm text-white">Headquarters: Manipal, Karnataka, India</p>
-          <p className="text-sm text-white">Email: <a href="mailto:director@rawradicals.in" className="text-blue-600 hover:underline">director@rawradicals.in</a></p>
+          </div>
         </div>
 
-        {/* Company */}
+        {/* Company Links */}
         <div>
-          <h4 className="font-bold text-lg mb-2">Company</h4>
-          <ul className="space-y-1 text-sm text-white">
-            <li><a href="#" className="hover:underline">Our team</a></li>
+          <h4 className="font-semibold text-base text-white mb-1">Company</h4>
+          <ul className="space-y-1 text-xs text-white">
+            <li><a href="#" className="hover:underline">Our Team</a></li>
             <li><a href="#" className="hover:underline">Contact Us</a></li>
-          </ul>
-        </div>
-
-        {/* Services */}
-        <div>
-          <h4 className="font-bold text-lg mb-2">Our Services</h4>
-          <ul className="space-y-1 text-sm text-white">
             <li><a href="#" className="hover:underline">Services</a></li>
           </ul>
         </div>
 
-        {/* Social Icons */}
+        
+
+        {/* Contact Info */}
+        <div className="flex flex-col space-y-1">
+          <p className="text-xs text-white">Phone: (+91) 81097 82903</p>
+          <p className="text-xs text-white">Headquarters: Manipal, Karnataka, India</p>
+          <p className="text-xs text-white">
+            Email: <a href="mailto:director@rawradicals.in" className="text-blue-500 hover:underline">director@rawradicals.in</a>
+          </p>
+        </div>
+
+        {/* Social Media */}
         <div>
-          <h4 className="font-bold text-lg mb-2">Team Solutions</h4>
-          <div className="flex space-x-4 text-white">
+          <h4 className="font-semibold text-base text-white mb-1">Team Solutions</h4>
+          <div className="flex space-x-3 text-white text-sm">
             <a href="#" aria-label="Facebook"><FaFacebookF /></a>
             <a href="#" aria-label="Twitter"><FaTwitter /></a>
             <a href="#" aria-label="LinkedIn"><FaLinkedinIn /></a>
@@ -54,7 +53,6 @@ const RawRadicalsFooter = () => {
           </div>
         </div>
 
-        
       </div>
     </footer>
   );

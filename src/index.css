@@ -42,4 +42,20 @@
     font-weight: 400;
     font-style: normal;
   }
+
+  @keyframes zoomIn {
+    0% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .zoom-in {
+    animation: zoomIn 1s ease-out forwards;
+  }
+  
   
