@@ -9,7 +9,7 @@ const products = [
   {
     id: 1,
     name: "Raw Radicals Chyawanprash",
-    image: "/images/pic1.png",
+    image: "/images/luggage1.png",
     price: 1999,
     tagline: "Rooted in tradition, powered by nature.",
     description:
@@ -18,7 +18,7 @@ const products = [
   {
     id: 2,
     name: "Ashwagandha Capsules",
-    image: "/images/pic2.png",
+    image: "/images/luggage2.png",
     price: 999,
     tagline: "Balance stress. Enhance vitality.",
     description:
@@ -27,7 +27,7 @@ const products = [
   {
     id: 3,
     name: "Triphala Detox Blend",
-    image: "/images/pic3.jpeg",
+    image: "/images/luggage3.png",
     price: 799,
     tagline: "Gentle cleansing for gut wellness.",
     description:
@@ -36,7 +36,7 @@ const products = [
   {
     id: 4,
     name: "Tulsi Immunity Drops",
-    image: "/images/pic1.png",
+    image: "/images/luggage4.png",
     price: 499,
     tagline: "Holy basil for holy immunity.",
     description:
@@ -45,7 +45,7 @@ const products = [
   {
     id: 5,
     name: "Moringa Supergreen Powder",
-    image: "/images/pic2.png",
+    image: "/images/luggage1.png",
     price: 899,
     tagline: "Plant-based nourishment for your daily vitality.",
     description:
@@ -54,7 +54,7 @@ const products = [
   {
     id: 6,
     name: "Shilajit Resin",
-    image: "/images/pic1.png",
+    image: "/images/luggage2.png",
     price: 1499,
     tagline: "Strength. Stamina. Shilajit.",
     description:
@@ -63,7 +63,7 @@ const products = [
   {
     id: 7,
     name: "Amla C+ Capsules",
-    image: "/images/pic2.png",
+    image: "/images/luggage3.png",
     price: 599,
     tagline: "Nature’s richest source of Vitamin C.",
     description:
@@ -72,7 +72,7 @@ const products = [
   {
     id: 8,
     name: "Gut Restore Probiotic",
-    image: "/images/pic5.jpeg",
+    image: "/images/luggage4.png",
     price: 1199,
     tagline: "More than probiotics — a gut revolution.",
     description:
@@ -81,7 +81,7 @@ const products = [
   {
     id: 9,
     name: "Herbal Sleep Drops",
-    image: "/images/pic1.png",
+    image: "/images/luggage1.png",
     price: 699,
     tagline: "Fall asleep. Stay asleep. Wake refreshed.",
     description:
@@ -90,7 +90,7 @@ const products = [
   {
     id: 9,
     name: "Herbal Sleep Drops",
-    image: "/images/pic1.png",
+    image: "/images/luggage2.png",
     price: 699,
     tagline: "Fall asleep. Stay asleep. Wake refreshed.",
     description:
@@ -99,7 +99,7 @@ const products = [
   {
     id: 11,
     name: "Herbal Sleep Drops",
-    image: "/images/pic1.png",
+    image: "/images/luggage3.png",
     price: 699,
     tagline: "Fall asleep. Stay asleep. Wake refreshed.",
     description:
@@ -108,7 +108,7 @@ const products = [
   {
     id: 10,
     name: "Herbal Sleep Drops",
-    image: "/images/pic1.png",
+    image: "/images/luggage4.png",
     price: 699,
     tagline: "Fall asleep. Stay asleep. Wake refreshed.",
     description:
@@ -139,7 +139,7 @@ export default function ProductPage() {
   ];
 
   return (
-    <div className="bg-gray-100 text-black min-h-screen p-4 sm:p-6 mt-15 uppercase tracking-widest">
+    <div className="bg-gray-100 text-black min-h-screen p-4 sm:p-6 mt-15 uppercase tracking-widest ">
       {/* Mobile Toolbar */}
       <div className="sm:hidden flex justify-between items-center gap-2 mb-4 border border-gray-700 rounded p-2 shadow bg-gray-100">
         <button
@@ -171,7 +171,7 @@ export default function ProductPage() {
       </div>
 
       {/* Desktop Toolbar */}
-      <div className="hidden sm:flex sticky top-16 bg-gray-100 z-40 mb-4 border border-gray-500 p-3 ">
+      <div className="hidden sm:flex sticky top-16 bg-gray-100 z-40 mb-4 border-b border-gray-300 p-3">
         <div className="flex items-center justify-between flex-wrap gap-4 w-full">
           <div className="flex gap-2">
             <button
@@ -317,9 +317,9 @@ export default function ProductPage() {
       {/* Filters + Product Grid */}
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Sidebar */}
-        <aside className="w-full lg:w-1/4 p-4 border border-gray-800  bg-gray-100 hidden sm:block text-black uppercase tracking-widest">
+        <aside className="w-full lg:w-1/4 p-4  bg-gray-100 hidden sm:block text-black uppercase tracking-widest">
           <h2 className="text-lg font-semibold mb-2">Filters</h2>
-          <div className="border-b border-gray-700 pb-2 mb-2">
+          <div className="border-b border-gray-300 pb-2 mb-2">
             <button
               className="flex justify-between w-full text-left font-medium hover:pointer-cursor"
               onClick={() => setShowAvailability(!showAvailability)}
@@ -416,7 +416,7 @@ export default function ProductPage() {
                   </button>
 
                   <div className="text-black text-center mt-2 uppercase tracking-widest text-sm">
-                    <h3 className="text-base font-medium">{product.name}</h3>
+                    <h3 className="text-sm font-medium" >{product.name}</h3>
                     <p className="text-sm text-gray-600">₹{product.price}</p>
                   </div>
                 </motion.div>

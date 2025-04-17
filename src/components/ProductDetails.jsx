@@ -5,7 +5,7 @@ const products = [
     {
       id: 1,
       name: "Raw Radicals Chyawanprash",
-      image: "/images/pic1.png",
+      image: "/images/luggage1.png",
       price: 1999,
       tagline: "Rooted in tradition, powered by nature.",
       description:
@@ -14,7 +14,7 @@ const products = [
     {
       id: 2,
       name: "Ashwagandha Capsules",
-      image: "/images/pic2.png",
+      image: "/images/luggage2.png",
       price: 999,
       tagline: "Balance stress. Enhance vitality.",
       description:
@@ -23,7 +23,7 @@ const products = [
     {
       id: 3,
       name: "Triphala Detox Blend",
-      image: "/images/pic3.jpeg",
+      image: "/images/luggage3.png",
       price: 799,
       tagline: "Gentle cleansing for gut wellness.",
       description:
@@ -32,7 +32,7 @@ const products = [
     {
       id: 4,
       name: "Tulsi Immunity Drops",
-      image: "/images/pic1.png",
+      image: "/images/luggage4.png",
       price: 499,
       tagline: "Holy basil for holy immunity.",
       description:
@@ -41,7 +41,7 @@ const products = [
     {
       id: 5,
       name: "Moringa Supergreen Powder",
-      image: "/images/pic2.png",
+      image: "/images/luggage1.png",
       price: 899,
       tagline: "Plant-based nourishment for your daily vitality.",
       description:
@@ -50,7 +50,7 @@ const products = [
     {
       id: 6,
       name: "Shilajit Resin",
-      image: "/images/pic1.png",
+      image: "/images/luggage2.png",
       price: 1499,
       tagline: "Strength. Stamina. Shilajit.",
       description:
@@ -59,7 +59,7 @@ const products = [
     {
       id: 7,
       name: "Amla C+ Capsules",
-      image: "/images/pic2.png",
+      image: "/images/luggage3.png",
       price: 599,
       tagline: "Nature’s richest source of Vitamin C.",
       description:
@@ -68,7 +68,7 @@ const products = [
     {
       id: 8,
       name: "Gut Restore Probiotic",
-      image: "/images/pic5.jpeg",
+      image: "/images/luggage4.png",
       price: 1199,
       tagline: "More than probiotics — a gut revolution.",
       description:
@@ -77,7 +77,7 @@ const products = [
     {
       id: 9,
       name: "Herbal Sleep Drops",
-      image: "/images/pic1.png",
+      image: "/images/luggage1.png",
       price: 699,
       tagline: "Fall asleep. Stay asleep. Wake refreshed.",
       description:
@@ -86,7 +86,7 @@ const products = [
     {
       id: 9,
       name: "Herbal Sleep Drops",
-      image: "/images/pic1.png",
+      image: "/images/luggage2.png",
       price: 699,
       tagline: "Fall asleep. Stay asleep. Wake refreshed.",
       description:
@@ -95,7 +95,7 @@ const products = [
     {
       id: 11,
       name: "Herbal Sleep Drops",
-      image: "/images/pic1.png",
+      image: "/images/luggage3.png",
       price: 699,
       tagline: "Fall asleep. Stay asleep. Wake refreshed.",
       description:
@@ -104,7 +104,7 @@ const products = [
     {
       id: 10,
       name: "Herbal Sleep Drops",
-      image: "/images/pic1.png",
+      image: "/images/luggage4.png",
       price: 699,
       tagline: "Fall asleep. Stay asleep. Wake refreshed.",
       description:
