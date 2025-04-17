@@ -9,11 +9,11 @@ const Home = () => {
   return (
     <div className="bg-black">
       {/* Banner Section */}
-<div className="w-full h-[700px] mt-10 overflow-hidden">
+      <div className="w-full aspect-[16/9] mt-10 overflow-hidden">
   <img
     src="/images/homepage_background.png"
     alt="Homepage Banner"
-    className="w-full h-full object-cover rounded-lg zoom-in"
+    className="w-full h-full object-cover rounded-lg"
   />
 </div>
      {/* Products Section */}

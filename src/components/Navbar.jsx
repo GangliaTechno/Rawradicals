@@ -120,7 +120,7 @@ const Navbar = () => {
                 to="/"
                 className="text-sm font-medium text-black hover:text-gray-600"
               >
-                Home
+                HOME
               </Link>
 
               <div className="flex flex-col items-center">
@@ -128,7 +128,7 @@ const Navbar = () => {
                   onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
                   className="text-sm font-medium text-black hover:text-gray-600"
                 >
-                  About Us
+                  ABOUT US
                 </button>
                 {isMobileDropdownOpen && (
                   <div className="flex flex-col space-y-2 mt-2">
@@ -136,13 +136,13 @@ const Navbar = () => {
                       to="/ourteam"
                       className="text-sm text-black hover:text-gray-600"
                     >
-                      Our Team
+                      OUR TEAM
                     </Link>
                     <Link
                       to="/aboutbrand"
                       className="text-sm text-black hover:text-gray-600"
                     >
-                      About Brand
+                      ABOUT BRAND
                     </Link>
                   </div>
                 )}
@@ -152,13 +152,13 @@ const Navbar = () => {
                 to="/products"
                 className="text-sm font-medium text-black hover:text-gray-600"
               >
-                Products
+                PRODUCTS
               </Link>
               <Link
                 to="/contactus"
                 className="text-sm font-medium text-black hover:text-gray-600"
               >
-                Contact Us
+                CONTACT US
               </Link>
             </nav>
           </div>
