@@ -9,13 +9,14 @@ const Home = () => {
   return (
     <div className="bg-black">
       {/* Banner Section */}
-      <div className="w-full aspect-[16/9] mt-10 overflow-hidden">
+      <div className="w-full h-[450px] sm:h-[500px] md:h-[500px] lg:h-[500px] xl:h-[500px] mt-10 overflow-hidden transition-all duration-500 ease-in-out">
   <img
     src="/images/homepage_background.png"
     alt="Homepage Banner"
-    className="w-full h-full object-cover rounded-lg"
+     className="w-full h-full object-cover rounded-lg transition-all duration-500 ease-in-out zoom-in"
   />
 </div>
+
      {/* Products Section */}
 <div className="bg-white py-16">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
