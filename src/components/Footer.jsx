@@ -12,12 +12,9 @@ const RawRadicalsFooter = () => {
             <img 
               src="/images/logo_2.png" 
               alt="Raw Radicals Logo" 
-              className="h-20 w-20 object-contain" 
+              className="h-30 w-30 object-contain" 
             />
-            <div className="text-sm font-semibold leading-tight text-white">
-              RAW RADICALS<br />
-              <span className="text-xs font-normal">TECHNOLOGIES PVT. LTD.</span>
-            </div>
+            
           </div>
         </div>
 

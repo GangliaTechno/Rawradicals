@@ -143,7 +143,7 @@ const Home = () => {
   <div className="bg-black text-white py-2 overflow-hidden whitespace-nowrap">
         <div className="marquee flex animate-marquee">
           {Array(16)
-            .fill('RAW RADICALS')
+            .fill('RAW RADICLES')
             .map((text, idx) => (
               <span key={idx} className="mx-8 text-xl font-medium">
                 {text}

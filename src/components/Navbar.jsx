@@ -36,17 +36,13 @@ const Navbar = () => {
     <>
       <header className="group shadow-md fixed w-screen top-0 z-100 transition-all duration-300 bg-white hover:bg-white uppercase tracking-widest">
         <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Left: Logo and Brand */}
-            <div className="flex items-center space-x-3">
-              <img
-                src="/images/logo.png"
-                alt="Raw Radicals Logo"
-                className="h-12 w-12 rounded-full bg-white p-1"
-              />
-              <div className="text-lg font-bold leading-tight uppercase tracking-widest">
-                RAW RADICALS
-              </div>
+          <div className="flex justify-between items-center h-30 sm:h-30">
+            {/* Left - Logo */}
+            <div className="flex-shrink-0 text-black font-serif leading-none text-[42px] md:text-[55px] uppercase tracking-tight font-black">
+              <span className="block">RAW.</span>
+              <span className="block font-light tracking-[0.70em] text-sm md:text-lg">
+                RADICLES
+              </span>
             </div>
 
             {/* Navigation Links */}
@@ -60,7 +56,7 @@ const Navbar = () => {
                   className="hover:text-black hover:cursor-pointer uppercase tracking-widest"
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 >
-                 <p className="uppercase tracking-widest">ABOUT US</p> 
+                  <p className="uppercase tracking-widest">ABOUT US</p>
                 </button>
                 {isDropdownOpen && (
                   <div className="absolute left-0 mt-2 w-40 bg-white shadow-md rounded-md">
