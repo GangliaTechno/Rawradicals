@@ -13,6 +13,7 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false)
   const [isScrolling, setIsScrolling] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [currency, setCurrency] = useState('USD')
   const [language, setLanguage] = useState('English')
@@ -48,25 +49,31 @@ const Navbar = () => {
     }
   }, [])
 
+  const isActive = isScrolling || isHovered
+
   return (
     <>
       <header
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
         className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-          isScrolling
+          isActive
             ? 'bg-white text-black shadow-md'
             : 'bg-transparent text-white'
         } backdrop-blur-md`}
       >
         <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-20">
           {/* Left - Logo */}
-          <div className="flex-shrink-0 font-serif font-black text-[28px] md:text-[32px] leading-tight uppercase">
+          <div className="flex-shrink-0 font-serif font-black text-[28px] md:text-[32px] leading-tight">
             <Link
               to="/"
-              className={`${isScrolling ? 'text-black' : 'text-white'}`}
+              className={`${isActive ? 'text-black' : 'text-white'}`}
             >
-              <span>RAW.</span>
-              <div className="font-light tracking-[0.35em] text-sm md:text-lg">
-                RADICLES
+              <div className="flex flex-col leading-none">
+                <span className="normal-case">raw.</span>
+                <span className="uppercase font-light text-[5px] md:text-[14px] tracking-[0.50em]">
+                  RADICLES
+                </span>
               </div>
             </Link>
           </div>
@@ -77,35 +84,14 @@ const Navbar = () => {
               HOME
             </Link>
 
-            <div className="relative" ref={dropdownRef}>
-              <button
-                className="hover:text-gray-600 flex items-center"
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              >
-                ABOUT US
-                <FaChevronDown className="ml-1" size={10} />
-              </button>
-              {isDropdownOpen && (
-                <div className="absolute left-0 mt-2 w-40 bg-white text-black shadow-md rounded-md">
-                  <Link
-                    to="/ourteam"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                  >
-                    OUR TEAM
-                  </Link>
-                  <Link
-                    to="/aboutbrand"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                  >
-                    ABOUT BRAND
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            <Link to="/products" className="hover:text-gray-600">
-              PRODUCTS
+            <Link to="/contactus" className="hover:text-gray-600">
+              SUITCASE
             </Link>
+
+            <Link to="/contactus" className="hover:text-gray-600">
+              BAGS
+            </Link>
+
             <Link to="/contactus" className="hover:text-gray-600">
               CONTACT US
             </Link>

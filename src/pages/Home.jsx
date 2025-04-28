@@ -236,21 +236,21 @@ const Home = () => {
     <div className="flex flex-col items-center">
       <FaShieldAlt className="text-2xl text-black mb-3" />
       <h4 className="text-lg font-semibold">Secure Payment</h4>
-      <p className="text-gray-600 text-sm">Your payment is safe with us</p>
+      <p className="text-gray-600 text-sm">At Raw Radicals, we ensure secure payments with advanced encryption, protecting your financial details every step of the way.</p>
     </div>
 
     {/* Fast Delivery */}
     <div className="flex flex-col items-center">
       <FaShippingFast className="text-2xl text-black mb-3" />
       <h4 className="text-lg font-semibold">Fast Delivery</h4>
-      <p className="text-gray-600 text-sm">Get your order quickly</p>
+      <p className="text-gray-600 text-sm">At Raw Radicals, we ensure secure payments with advanced encryption, protecting your financial details every step of the way.</p>
     </div>
 
     {/* Easy Returns */}
     <div className="flex flex-col items-center">
       <FaUndo className="text-2xl text-black mb-3" />
       <h4 className="text-lg font-semibold">Easy Returns</h4>
-      <p className="text-gray-600 text-sm">30-day return policy</p>
+      <p className="text-gray-600 text-sm">At Raw Radicals, we offer easy returns, making sure you can shop with confidence and return items hassle-free.</p>
     </div>
 
   </div>

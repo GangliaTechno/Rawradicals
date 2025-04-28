@@ -1,122 +1,112 @@
-import React from 'react'
+import React from 'react';
 import {
   FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-  FaEnvelope,
-} from 'react-icons/fa'
+  FaInstagram,
+  FaPinterestP,
+  FaYoutube,
+  FaTiktok,
+} from 'react-icons/fa';
 
 const RawRadicalsFooter = () => {
   return (
-    <footer className="bg-black py-6 px-4 md:px-8 border-t">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
-        {/* Logo & Name */}
-        <div className="flex flex-col items-start space-y-2">
+    <footer className="bg-black text-white py-10 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
+        
+        {/* About with Logo and Company Info */}
+        <div className="space-y-4 col-span-1">
           <div className="flex items-center space-x-3">
             <img
               src="/images/logo_2.png"
               alt="Raw Radicals Logo"
-              className="h-30 w-30 object-contain"
+              className="h-10 w-10 object-contain"
             />
+            <span className="text-lg font-semibold">Raw Radicals</span>
+          </div>
+          <p className="text-xs mt-2">A premium luggage company.</p>
+
+          {/* Contact Info */}
+          <div className="text-xs space-y-1 mt-4">
+            <p>Phone: (+91) 81097 82903</p>
+            <p>Headquarters: Manipal, Karnataka, India</p>
+            <p>Email: <a href="mailto:director@rawradicals.in" className="underline hover:text-gray-400">director@rawradicals.in</a></p>
+          </div>
+
+          {/* Social Media */}
+          <div className="flex space-x-3 mt-4">
+            <a href="#" aria-label="Facebook"><FaFacebookF size={16} /></a>
+            <a href="#" aria-label="Instagram"><FaInstagram size={16} /></a>
+            <a href="#" aria-label="Pinterest"><FaPinterestP size={16} /></a>
+            <a href="#" aria-label="YouTube"><FaYoutube size={16} /></a>
+            <a href="#" aria-label="TikTok"><FaTiktok size={16} /></a>
           </div>
         </div>
 
-        {/* Company Links */}
-        <div>
-          <h4 className="font-semibold text-base text-white mb-1">Company</h4>
-          <ul className="space-y-1 text-xs text-white">
-            <li>
-              <a href="#" className="hover:underline">
-                Our Team
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Contact Us
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Services
-              </a>
-            </li>
+        {/* Info Links */}
+        <div className="col-span-1">
+          <h4 className="font-semibold text-sm mb-3">INFO</h4>
+          <ul className="space-y-2 text-xs">
+            <li><a href="#" className="hover:underline">M Rewards</a></li>
+            <li><a href="#" className="hover:underline">FAQ</a></li>
+            <li><a href="#" className="hover:underline">Shipping</a></li>
+            <li><a href="#" className="hover:underline">Returns & Exchanges</a></li>
+            <li><a href="#" className="hover:underline">Warranty</a></li>
+            <li><a href="#" className="hover:underline">Contact Us</a></li>
+            <li><a href="#" className="hover:underline">Terms of Service</a></li>
+            <li><a href="#" className="hover:underline">Privacy Policy</a></li>
           </ul>
         </div>
 
-        
-
-        {/* Contact Info */}
-        <div className="flex flex-col space-y-1">
-          <p className="text-xs text-white">Phone: (+91) 81097 82903</p>
-          <p className="text-xs text-white">
-            Headquarters: Manipal, Karnataka, India
-          </p>
-          <p className="text-xs text-white">
-            Email:{' '}
-            <a
-              href="mailto:director@rawradicals.in"
-              className="text-blue-500 hover:underline"
-            >
-              director@rawradicals.in
-            </a>
-          </p>
+        {/* Business Links */}
+        <div className="col-span-1">
+          <h4 className="font-semibold text-sm mb-3">BUSINESS</h4>
+          <ul className="space-y-2 text-xs">
+            <li><a href="#" className="hover:underline">Collaboration</a></li>
+            <li><a href="#" className="hover:underline">Corporate Gifting</a></li>
+            <li><a href="#" className="hover:underline">Do not sell my personal information</a></li>
+          </ul>
         </div>
 
-         {/* Newsletter */}
-         <div>
-          <h4 className="font-semibold text-base text-white mb-2">
-            Newsletter
-          </h4>
-          <p className="text-xs text-white mb-2">
-            Sign up to our newsletter to receive exclusive offers.
-          </p>
-          <form className="flex flex-col space-y-2">
+        {/* Newsletter */}
+        <div className="col-span-2">
+          <h4 className="font-semibold text-sm mb-3">NEWSLETTER</h4>
+          <p className="text-xs mb-4">Sign up to our newsletter to receive exclusive offers.</p>
+          <form className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
             <input
               type="email"
               placeholder="E-mail"
-              className="px-3 py-2 rounded-md text-black text-sm focus:outline-none border border-white bg-transparent placeholder-white"
+              className="flex-1 px-3 py-2 rounded-md text-black text-sm bg-transparent border border-white placeholder-white focus:outline-none"
               required
             />
             <button
               type="submit"
-              className="bg-white text-black px-3 py-2 rounded-md text-sm font-semibold hover:bg-gray-200"
+              className="bg-white text-black font-semibold text-sm py-2 px-6 rounded-md hover:bg-gray-300"
             >
-              Subscribe
+              SUBSCRIBE
             </button>
           </form>
-          <p className="text-[10px] text-white mt-2">
-            By signing up to our newsletter, you agree with our{' '}
-            <a href="#" className="underline">
-              privacy policy
-            </a>
-            
+          <p className="text-[10px] text-gray-400 mt-2">
+            By signing up, you agree to our <a href="#" className="underline">privacy policy</a>.
           </p>
-        </div>
 
-       
-        {/* Social Media */}
-        <div>
-          <h4 className="font-semibold text-base text-white mb-1">
-            Team Solutions
-          </h4>
-          <div className="flex space-x-3 text-white text-sm">
-            <a href="#" aria-label="Facebook">
-              <FaFacebookF />
-            </a>
-            <a href="#" aria-label="Twitter">
-              <FaTwitter />
-            </a>
-            <a href="#" aria-label="LinkedIn">
-              <FaLinkedinIn />
-            </a>
-            <a href="#" aria-label="Email">
-              <FaEnvelope />
-            </a>
+          {/* Payment Icons */}
+          <div className="flex space-x-2 mt-6">
+            <img src="/images/card_1.png" alt="Visa" className="h-6 object-contain" />
+            <img src="/images/card_1.png" alt="Mastercard" className="h-6 object-contain" />
+            <img src="/images/card_1.png" alt="American Express" className="h-6 object-contain" />
+            <img src="/images/card_2.png" alt="Apple Pay" className="h-6 object-contain" />
+            <img src="/images/card_2.png" alt="Google Pay" className="h-6 object-contain" />
+            <img src="/images/card_2.png" alt="Shopify Pay" className="h-6 object-contain" />
           </div>
         </div>
       </div>
-    </footer>
-  )
-}
 
-export default RawRadicalsFooter
+      {/* Bottom */}
+      <div className="max-w-7xl mx-auto mt-10 flex flex-col md:flex-row items-center justify-between text-xs space-y-4 md:space-y-0 border-t border-gray-700 pt-6">
+        <p>© 2025 - MVST</p>
+        {/* Optional: Language selector can be added here */}
+      </div>
+    </footer>
+  );
+};
+
+export default RawRadicalsFooter;
