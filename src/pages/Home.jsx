@@ -1,15 +1,13 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper/modules'
+import { FaShieldAlt, FaShippingFast, FaUndo } from 'react-icons/fa'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { FaShieldAlt, FaShippingFast, FaUndo } from 'react-icons/fa'
 
 
 const Home = () => {
   return (
     <div className="bg-black">
       {/* Banner Section */}
-      <div className="w-full h-[450px] sm:h-[500px] md:h-[500px] lg:h-[500px] xl:h-[500px] mt-10 overflow-hidden transition-all duration-500 ease-in-out">
+      <div className="w-full h-screen sm:h-[700px] md:h-[700px] lg:h-[700px] xl:h-[700px] overflow-hidden transition-all duration-500 ease-in-out">
   <img
     src="/images/homepage_background.png"
     alt="Homepage Banner"

@@ -1,17 +1,27 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { FaSearch, FaUser, FaShoppingCart, FaBars } from 'react-icons/fa'
+import {
+  FaSearch,
+  FaUser,
+  FaShoppingCart,
+  FaBars,
+  FaChevronDown,
+} from 'react-icons/fa'
 import Cart from './cart'
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false)
+  const [isScrolling, setIsScrolling] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const dropdownRef = useRef(null)
+  const [currency, setCurrency] = useState('USD')
+  const [language, setLanguage] = useState('English')
   const [isCartOpen, setIsCartOpen] = useState(false)
+  const dropdownRef = useRef(null)
+  const navigate = useNavigate()
+
   const openCart = () => setIsCartOpen(true)
   const closeCart = () => setIsCartOpen(false)
-  const navigate = useNavigate()
 
   const handleUserClick = () => {
     navigate('/auth')
@@ -27,139 +37,213 @@ const Navbar = () => {
         setIsDropdownOpen(false)
       }
     }
-
+    const handleOnScroll = () => {
+      setIsScrolling(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleOnScroll)
     document.addEventListener('click', handleClickOutside)
-    return () => document.removeEventListener('click', handleClickOutside)
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+      window.removeEventListener('scroll', handleOnScroll)
+    }
   }, [])
 
   return (
     <>
-      <header className="group shadow-md fixed w-screen top-0 z-100 transition-all duration-300 bg-white hover:bg-white uppercase tracking-widest">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-30 sm:h-30">
-            {/* Left - Logo */}
-            <div className="flex-shrink-0 text-black font-serif leading-none text-[42px] md:text-[55px] uppercase tracking-tight font-black">
-              <span className="block">RAW.</span>
-              <span className="block font-light tracking-[0.70em] text-sm md:text-lg">
+      <header
+        className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+          isScrolling
+            ? 'bg-white text-black shadow-md'
+            : 'bg-transparent text-white'
+        } backdrop-blur-md`}
+      >
+        <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-20">
+          {/* Left - Logo */}
+          <div className="flex-shrink-0 font-serif font-black text-[28px] md:text-[32px] leading-tight uppercase">
+            <Link
+              to="/"
+              className={`${isScrolling ? 'text-black' : 'text-white'}`}
+            >
+              <span>RAW.</span>
+              <div className="font-light tracking-[0.35em] text-sm md:text-lg">
                 RADICLES
-              </span>
-            </div>
-
-            {/* Navigation Links */}
-            <nav className="hidden md:flex space-x-6 text-sm font-medium text-black group-hover:text-black">
-              <Link to="/" className="hover:text-black">
-                HOME
-              </Link>
-
-              <div className="relative" ref={dropdownRef}>
-                <button
-                  className="hover:text-black hover:cursor-pointer uppercase tracking-widest"
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                >
-                  <p className="uppercase tracking-widest">ABOUT US</p>
-                </button>
-                {isDropdownOpen && (
-                  <div className="absolute left-0 mt-2 w-40 bg-white shadow-md rounded-md">
-                    <Link
-                      to="/ourteam"
-                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    >
-                      OUR TEAM
-                    </Link>
-                    <Link
-                      to="/aboutbrand"
-                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    >
-                      ABOUT TEAM
-                    </Link>
-                  </div>
-                )}
               </div>
-
-              <Link to="/products" className="hover:text-black">
-                PRODUCTS
-              </Link>
-              <Link to="/contactus" className="hover:text-black">
-                CONTACT US
-              </Link>
-            </nav>
-
-            {/* Right: Icons & Hamburger */}
-            <div className="flex items-center space-x-7">
-              <button className="text-black group-hovr:text-black">
-                <FaSearch />
-              </button>
-              <button
-                className="text-black group-hover:text-black"
-                onClick={handleUserClick}
-              >
-                <FaUser />
-              </button>
-              <button
-                onClick={openCart}
-                className="text-black group-hover:text-black relative cursor-pointer"
-              >
-                <FaShoppingCart />
-              </button>
-
-              {/* Hamburger Icon (Mobile) */}
-              <button onClick={toggleMenu} className="md:hidden">
-                <FaBars className="text-black" />
-              </button>
-            </div>
+            </Link>
           </div>
 
-          {/* Mobile Menu */}
-          <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-            <nav className="flex flex-col space-y-4 text-center bg-white py-4">
-              <Link
-                to="/"
-                className="text-sm font-medium text-black hover:text-gray-600"
-              >
-                HOME
-              </Link>
+          {/* Center - Desktop Navigation */}
+          <nav className="hidden md:flex space-x-6 text-sm font-medium">
+            <Link to="/" className="hover:text-gray-600">
+              HOME
+            </Link>
 
-              <div className="flex flex-col items-center">
-                <button
-                  onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
-                  className="text-sm font-medium text-black hover:text-gray-600"
-                >
-                  ABOUT US
-                </button>
-                {isMobileDropdownOpen && (
-                  <div className="flex flex-col space-y-2 mt-2">
-                    <Link
-                      to="/ourteam"
-                      className="text-sm text-black hover:text-gray-600"
-                    >
-                      OUR TEAM
-                    </Link>
-                    <Link
-                      to="/aboutbrand"
-                      className="text-sm text-black hover:text-gray-600"
-                    >
-                      ABOUT BRAND
-                    </Link>
-                  </div>
-                )}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                className="hover:text-gray-600 flex items-center"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
+                ABOUT US
+                <FaChevronDown className="ml-1" size={10} />
+              </button>
+              {isDropdownOpen && (
+                <div className="absolute left-0 mt-2 w-40 bg-white text-black shadow-md rounded-md">
+                  <Link
+                    to="/ourteam"
+                    className="block px-4 py-2 hover:bg-gray-200"
+                  >
+                    OUR TEAM
+                  </Link>
+                  <Link
+                    to="/aboutbrand"
+                    className="block px-4 py-2 hover:bg-gray-200"
+                  >
+                    ABOUT BRAND
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <Link to="/products" className="hover:text-gray-600">
+              PRODUCTS
+            </Link>
+            <Link to="/contactus" className="hover:text-gray-600">
+              CONTACT US
+            </Link>
+          </nav>
+
+          {/* Right - Icons */}
+          <div className="flex items-center space-x-5">
+            <button className="hover:text-gray-600 hidden md:block">
+              <FaSearch />
+            </button>
+            <button
+              onClick={handleUserClick}
+              className="hover:text-gray-600 hidden md:block"
+            >
+              <FaUser />
+            </button>
+            <button
+              onClick={openCart}
+              className="hover:text-gray-600 relative hidden md:block"
+            >
+              <FaShoppingCart />
+            </button>
+
+            {/* Currency */}
+            <div className="relative hidden md:block group">
+              <button className="flex items-center space-x-1 hover:text-gray-600">
+                <img
+                  src={`https://flagcdn.com/24x18/${
+                    currency.toLowerCase() === 'usd'
+                      ? 'us'
+                      : currency.toLowerCase() === 'inr'
+                      ? 'in'
+                      : currency.toLowerCase() === 'eur'
+                      ? 'eu'
+                      : currency.toLowerCase() === 'jpy'
+                      ? 'jp'
+                      : 'us'
+                  }.png`}
+                  className="w-5 h-4 object-cover rounded-sm"
+                  alt="Flag"
+                />
+                <span>{currency} $</span>
+                <FaChevronDown size={12} />
+              </button>
+
+              <div className="absolute hidden group-hover:block bg-white text-black shadow-md mt-2 rounded-md w-32 z-10">
+                {['USD', 'INR', 'EUR', 'JPY'].map((cur) => (
+                  <button
+                    key={cur}
+                    onClick={() => setCurrency(cur)}
+                    className="flex items-center px-4 py-2 hover:bg-gray-100 w-full"
+                  >
+                    {cur}
+                  </button>
+                ))}
               </div>
+            </div>
 
-              <Link
-                to="/products"
-                className="text-sm font-medium text-black hover:text-gray-600"
-              >
-                PRODUCTS
-              </Link>
-              <Link
-                to="/contactus"
-                className="text-sm font-medium text-black hover:text-gray-600"
-              >
-                CONTACT US
-              </Link>
-            </nav>
+            {/* Language */}
+            <div className="relative hidden md:block group">
+              <button className="flex items-center space-x-1 hover:text-gray-600">
+                <span>{language}</span>
+                <FaChevronDown size={12} />
+              </button>
+              <div className="absolute hidden group-hover:block bg-white text-black shadow-md mt-2 rounded-md w-32">
+                {['English', 'Hindi', 'Kannada', 'French'].map((lang) => (
+                  <button
+                    key={lang}
+                    onClick={() => setLanguage(lang)}
+                    className="flex px-4 py-2 hover:bg-gray-100 w-full"
+                  >
+                    {lang}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Hamburger */}
+            <button
+              onClick={toggleMenu}
+              className="md:hidden focus:outline-none"
+            >
+              <FaBars className="text-2xl" />
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div
+            className={`md:hidden bg-black/80 text-white flex flex-col items-center space-y-4 py-4 transition-all duration-300`}
+          >
+            <Link to="/" className="hover:text-gray-400" onClick={toggleMenu}>
+              HOME
+            </Link>
+            <button
+              onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
+              className="hover:text-gray-400"
+            >
+              ABOUT US
+            </button>
+            {isMobileDropdownOpen && (
+              <div className="flex flex-col items-center space-y-2">
+                <Link
+                  to="/ourteam"
+                  className="hover:text-gray-400"
+                  onClick={toggleMenu}
+                >
+                  OUR TEAM
+                </Link>
+                <Link
+                  to="/aboutbrand"
+                  className="hover:text-gray-400"
+                  onClick={toggleMenu}
+                >
+                  ABOUT BRAND
+                </Link>
+              </div>
+            )}
+            <Link
+              to="/products"
+              className="hover:text-gray-400"
+              onClick={toggleMenu}
+            >
+              PRODUCTS
+            </Link>
+            <Link
+              to="/contactus"
+              className="hover:text-gray-400"
+              onClick={toggleMenu}
+            >
+              CONTACT US
+            </Link>
+          </div>
+        )}
       </header>
+
+      {/* Cart */}
       <Cart isOpen={isCartOpen} onClose={closeCart} />
     </>
   )
