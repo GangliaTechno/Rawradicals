@@ -27,19 +27,23 @@ const teamMembers = [
 export default function OurTeam() {
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/images/backgroundimage.jpeg')" }}
-    >
-      <div className="bg-gradient-to-b from-black/80 to-black/90 min-h-screen py-20 px-4 md:px-8">
-        <div className="max-w-6xl mx-auto text-center mb-16">
-          <motion.h2
-            className="text-5xl md:text-6xl font-extrabold text-white tracking-wide uppercase"
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
+    className="min-h-screen bg-black bg-cover bg-center bg-no-repeat relative"
+    style={{ backgroundImage: "url('/images/backgroundimage.jpeg')" }}
+  >
+    {/* Overlay Gradient */}
+    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90"></div>
+  
+    {/* Main Content */}
+    <div className="relative z-10 min-h-screen py-20 px-4 md:px-8 flex flex-col justify-center items-center">
+      <div className="max-w-6xl mx-auto text-center mb-16">
+           <motion.h1
+                     className="text-5xl md:text-7xl font-extrabold text-center uppercase tracking-wide bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 bg-clip-text text-transparent drop-shadow-lg"
+                     initial={{ opacity: 0, y: -50 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 1 }}
+                   >
             Meet Our Team
-          </motion.h2>
+          </motion.h1>
 
           <div className="mt-4 w-32 h-1 bg-gradient-to-r from-orange-400 to-red-500 mx-auto rounded-full"></div>
 
