@@ -89,7 +89,7 @@ const Navbar = () => {
               SUITCASE
             </Link>
 
-            <Link to="/aboutbrand" className="hover:text-gray-600">
+            <Link to="/Products" className="hover:text-gray-600">
               BAGS
             </Link>
 
