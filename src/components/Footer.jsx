@@ -91,7 +91,7 @@ const RawRadicalsFooter = () => {
           {/* Payment Icons */}
           <div className="flex space-x-2 mt-6">
             <img src="/images/card_1.png" alt="Visa" className="h-6 object-contain" />
-            <img src="/images/card_1.pngg" alt="Mastercard" className="h-6 object-contain" />
+            <img src="/images/card_1.png" alt="Mastercard" className="h-6 object-contain" />
             <img src="/images/card_1.png" alt="American Express" className="h-6 object-contain" />
             <img src="/images/card_2.png" alt="Apple Pay" className="h-6 object-contain" />
             <img src="/images/card_2.png" alt="Google Pay" className="h-6 object-contain" />
