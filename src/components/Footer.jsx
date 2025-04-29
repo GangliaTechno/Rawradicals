@@ -18,9 +18,9 @@ const RawRadicalsFooter = () => {
             <img
               src="/images/logo_2.png"
               alt="Raw Radicals Logo"
-              className="h-10 w-10 object-contain"
+              className="h-40 w-40 object-contain"
             />
-            <span className="text-lg font-semibold">Raw Radicals</span>
+            
           </div>
           <p className="text-xs mt-2">A premium luggage company.</p>
 
@@ -91,11 +91,9 @@ const RawRadicalsFooter = () => {
           {/* Payment Icons */}
           <div className="flex space-x-2 mt-6">
             <img src="/images/card_1.png" alt="Visa" className="h-6 object-contain" />
-            <img src="/images/card_1.png" alt="Mastercard" className="h-6 object-contain" />
-            <img src="/images/card_1.png" alt="American Express" className="h-6 object-contain" />
+            <img src="/images/card_3.png" alt="Mastercard" className="h-6 object-contain" />
+            <img src="/images/card_4.png" alt="American Express" className="h-6 object-contain" />
             <img src="/images/card_2.png" alt="Apple Pay" className="h-6 object-contain" />
-            <img src="/images/card_2.png" alt="Google Pay" className="h-6 object-contain" />
-            <img src="/images/card_2.png" alt="Shopify Pay" className="h-6 object-contain" />
           </div>
         </div>
       </div>
