@@ -4,14 +4,8 @@ import { useState } from "react";
 import Cart from "./cart";
 
 const Navbar = () => {
-  // State to toggle mobile menu
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // Toggle mobile menu visibility
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   const openCart = () => setIsCartOpen(true); // ✅ Open cart
   const closeCart = () => setIsCartOpen(false); // ✅ Close cart
