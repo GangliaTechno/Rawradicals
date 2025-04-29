@@ -1,124 +1,266 @@
-/* eslint-disable no-unused-vars */
-import Navbar from '../components/Navbar';
-import background from '../assets/blackBackground.jpg';
-import product1 from '../assets/avurveda_1.png'; // Update with correct paths
-import product2 from '../assets/avurveda_2.png'; // Update with correct paths
-import product3 from '../assets/avurveda_3.png';
-import wallpaper_2 from '../assets/wallpaper_2.png'; 
+import { FaShieldAlt, FaShippingFast, FaUndo } from 'react-icons/fa'
+import 'swiper/css'
+import 'swiper/css/pagination'
+
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${background})` }}>
-      <div className="flex items-center justify-center h-[calc(100vh-64px)] bg-black/25 bg-opacity-50">
-        <h1 className="text-white text-4xl md:text-6xl font-bold text-center">
-          Welcome to Raw Radicals
-        </h1>
-      </div>
+    <div className="bg-black">
+      {/* Banner Section */}
+      <div className="w-full h-screen sm:h-[700px] md:h-[700px] lg:h-[700px] xl:h-[700px] overflow-hidden transition-all duration-500 ease-in-out">
+  <img
+    src="/images/homepage_background.png"
+    alt="Homepage Banner"
+     className="w-full h-full object-cover rounded-lg transition-all duration-500 ease-in-out zoom-in"
+  />
+</div>
 
-      {/* Products Section */}
-      <div className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">All products Collections</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Product 1 */}
-            <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-              <img src={product1} alt="Product 1" className="w-full h-72 object-cover" />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold">product 1</h3>
-                <p className="text-gray-400">From $395.00 USD</p>
-              </div>
-            </div>
-
-            {/* Product 2 */}
-            <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-              <img src={product2} alt="Product 2" className="w-full h-72 object-cover" />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold">product 2</h3>
-                <p className="text-gray-600 mt-2">From $395.00 USD</p>
-              </div>
-            </div>
-
-            {/* Product 3 */}
-            <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-              <img src={product3} alt="Product 3" className="w-full h-72 object-cover" />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold">product 3</h3>
-                <p className="text-gray-600 mt-2">From $885.00 USD</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-black text-white py-2">
-  <div className="overflow-hidden">
-    <p className="animate-marquee whitespace-nowrap text-xl font-medium">
-      <span className="mr-100">RAW RADICALS</span>
-      <span className="mr-100">RAW RADICALS</span>
-      <span className="mr-100">RAW RADICALS</span>
-      <span className="mr-100 ">RAW RADICALS</span>
-      <span className="mr-100">RAW RADICALS</span>
-      <span className="mr-100">RAW RADICALS</span>
-      <span className="mr-100">RAW RADICALS</span>
-      <span className="mr-100 ">RAW RADICALS</span>
-    </p>
-  </div>
-
-  
-  
-  
-  {/* New Display Section Below */}
-<div className="py-16 bg-white">
+     {/* Products Section */}
+<div className="bg-white py-16">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 className="text-3xl font-bold text-center mb-12 text-black">Shop by categories</h2>
+    <h2 className="text-3xl text-center mb-12 uppercase tracking-widest">
+      ALL PRODUCTS COLLECTION
+    </h2>
+
+    {/* Products Grid */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {/* Product 1 */}
-      <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-        <img src={product1} alt="Aluminum" className="w-full h-72 object-cover" />
-        <div className="p-4">
-          <h3 className="text-xl font-semibold text-black">Product 1</h3>
-          <p className="text-black">Sleek and Strong</p>
+      {[1, 2, 3].map((i) => (
+        <div key={i} className="flex flex-col items-center text-center">
+          <img
+            src={`/images/product_${i}.png`}
+            alt={`Product ${i}`}
+            className="w-full h-72 object-cover animate-zoomOut transform transition duration-300 hover:scale-95"
+          />
+          <h3 className="text-xl font-semibold mt-4">Product {i}</h3>
+          <p className="text-gray-600">
+            From ${i === 3 ? '885.00' : '395.00'} USD
+          </p>
         </div>
-      </div>
+      ))}
+    </div>
 
-      {/* Product 2 */}
-      <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-        <img src={product2} alt="Carbon Fiber" className="w-full h-72 object-cover" />
-        <div className="p-4">
-          <h3 className="text-xl font-semibold text-black">Product 2</h3>
-          <p className="text-black">Luxurious and Unbreakable</p>
-        </div>
-      </div>
+    {/* Single SHOP NOW Button Centered */}
+    <div className="flex justify-center mt-12">
+      <button
+        type="button"
+        className="relative inline-block px-6 py-3 overflow-hidden text-sm font-medium text-white border border-black group"
+      >
+        {/* Black sliding background */}
+        <span className="absolute inset-0 bg-black transition-all duration-300 ease-in-out transform -translate-x-full group-hover:translate-x-0"></span>
 
-      {/* Product 3 */}
-      <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-        <img src={product3} alt="Polycarbonate" className="w-full h-72 object-cover" />
-        <div className="p-4">
-          <h3 className="text-xl font-semibold text-black">Product 3</h3>
-          <p className="text-black">Lightweight and Durable</p>
-        </div>
+        {/* Text on top */}
+        <span className="relative z-10 group-hover:text-white text-black transition duration-300">
+          SHOP NOW
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+      <div className="bg-white py-16 px-4">
+  <h2 className="text-center text-2xl sm:text-3xl font-semibold tracking-wide text-gray-800 mb-12">
+    SHOP BY MATERIAL
+  </h2>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    {/* Aluminum Card */}
+    <div className="relative group overflow-hidden rounded-md shadow-lg">
+      <img
+        src="/images/collection_1.png" // Replace with actual path
+        alt="Aluminum"
+        className="w-full h-[450px] object-cover transition-transform duration-1000 group-hover:scale-105"
+      />
+      <div className="absolute bottom-6 left-6 text-white">
+        <p className="text-sm uppercase tracking-wide">SLEEK AND STRONG</p>
+        <h3 className="text-xl font-semibold">ALUMINUM</h3>
+        <button className="relative mt-4 inline-block px-6 py-3 overflow-hidden text-sm font-medium text-white border border-white group bg-transparent">
+  {/* White background slides in on hover */}
+  <span className="absolute inset-0 bg-white transition-all duration-300 ease-in-out transform -translate-x-full group-hover:translate-x-0"></span>
+
+  {/* Text turns black when white background appears */}
+  <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+    VIEW PRODUCTS
+  </span>
+</button>
+      </div>
+    </div>
+
+    {/* Carbon Fiber Card */}
+    <div className="relative group overflow-hidden rounded-md shadow-lg">
+      <img
+        src="/images/collection_2.png" // Replace with actual path
+        alt="Carbon Fiber"
+        className="w-full h-[450px] object-cover transition-transform duration-1000 group-hover:scale-105"
+      />
+      <div className="absolute bottom-6 left-6 text-white">
+        <p className="text-sm uppercase tracking-wide">LUXURIOUS AND UNBREAKABLE</p>
+        <h3 className="text-xl font-semibold">CARBON FIBER</h3>
+        <button className="relative mt-4 inline-block px-6 py-3 overflow-hidden text-sm font-medium text-white border border-white group bg-transparent">
+  {/* White background slides in on hover */}
+  <span className="absolute inset-0 bg-white transition-all duration-300 ease-in-out transform -translate-x-full group-hover:translate-x-0"></span>
+
+  {/* Text turns black when white background appears */}
+  <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+    VIEW PRODUCTS
+  </span>
+</button>
+      </div>
+    </div>
+
+    {/* Polycarbonate Card */}
+    <div className="relative group overflow-hidden rounded-md shadow-lg">
+      <img
+        src="/images/collection_3.png" // Replace with actual path
+        alt="Polycarbonate"
+        className="w-full h-[450px] object-cover transition-transform duration-1000 group-hover:scale-105"
+      />
+      <div className="absolute bottom-6 left-6 text-white">
+        <p className="text-sm uppercase tracking-wide">LIGHTWEIGHT AND DURABLE</p>
+        <h3 className="text-xl font-semibold">POLYCARBONATE</h3>
+        <button className="relative mt-4 inline-block px-6 py-3 overflow-hidden text-sm font-medium text-white border border-white group bg-transparent">
+  {/* White background slides in on hover */}
+  <span className="absolute inset-0 bg-white transition-all duration-300 ease-in-out transform -translate-x-full group-hover:translate-x-0"></span>
+
+  {/* Text turns black when white background appears */}
+  <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+    VIEW PRODUCTS
+  </span>
+</button>
+
       </div>
     </div>
   </div>
 </div>
 
 
-      {/* Image Section Below */}
-      <div className="py-4">
-  <div className="max-w-7xl mx-auto px-7 sm:px-3 lg:px-3">
-    <img 
-      src={wallpaper_2} 
-      className="w-full h-[400px] object-cover rounded-lg" 
-    />
+      
+    
+
+  {/* Scrolling Marquee */}
+  <div className="bg-black text-white py-2 overflow-hidden whitespace-nowrap">
+        <div className="marquee flex animate-marquee">
+          {Array(16)
+            .fill('RAW RADICLES')
+            .map((text, idx) => (
+              <span key={idx} className="mx-8 text-xl font-medium">
+                {text}
+              </span>
+            ))}
+        </div>
+      </div>
+
+
+      <div className="bg-white py-16 px-4">
+  <h2 className="text-center text-2xl sm:text-3xl font-semibold tracking-wide text-gray-800 mb-12">
+    SHOP BY MATERIAL
+  </h2>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    {/* Aluminum Card */}
+    <div className="relative group overflow-hidden rounded-md shadow-lg">
+      <img
+        src="/images/collection_1.png" // Replace with actual path
+        alt="Aluminum"
+        className="w-full h-[450px] object-cover transition-transform duration-1000 group-hover:scale-105"
+      />
+      <div className="absolute bottom-6 left-6 text-white">
+        <p className="text-sm uppercase tracking-wide">SLEEK AND STRONG</p>
+        <h3 className="text-xl font-semibold">ALUMINUM</h3>
+        <button className="relative mt-4 inline-block px-6 py-3 overflow-hidden text-sm font-medium text-white border border-white group bg-transparent">
+  {/* White background slides in on hover */}
+  <span className="absolute inset-0 bg-white transition-all duration-300 ease-in-out transform -translate-x-full group-hover:translate-x-0"></span>
+
+  {/* Text turns black when white background appears */}
+  <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+    VIEW PRODUCTS
+  </span>
+</button>
+      </div>
+    </div>
+
+    {/* Carbon Fiber Card */}
+    <div className="relative group overflow-hidden rounded-md shadow-lg">
+      <img
+        src="/images/collection_2.png" // Replace with actual path
+        alt="Carbon Fiber"
+        className="w-full h-[450px] object-cover transition-transform duration-1000 group-hover:scale-105"
+      />
+      <div className="absolute bottom-6 left-6 text-white">
+        <p className="text-sm uppercase tracking-wide">LUXURIOUS AND UNBREAKABLE</p>
+        <h3 className="text-xl font-semibold">CARBON FIBER</h3>
+        <button className="relative mt-4 inline-block px-6 py-3 overflow-hidden text-sm font-medium text-white border border-white group bg-transparent">
+  {/* White background slides in on hover */}
+  <span className="absolute inset-0 bg-white transition-all duration-300 ease-in-out transform -translate-x-full group-hover:translate-x-0"></span>
+
+  {/* Text turns black when white background appears */}
+  <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+    VIEW PRODUCTS
+  </span>
+</button>
+      </div>
+    </div>
+
+    {/* Polycarbonate Card */}
+    <div className="relative group overflow-hidden rounded-md shadow-lg">
+      <img
+        src="/images/collection_3.png" // Replace with actual path
+        alt="Polycarbonate"
+        className="w-full h-[450px] object-cover transition-transform duration-1000 group-hover:scale-105"
+      />
+      <div className="absolute bottom-6 left-6 text-white">
+        <p className="text-sm uppercase tracking-wide">LIGHTWEIGHT AND DURABLE</p>
+        <h3 className="text-xl font-semibold">POLYCARBONATE</h3>
+        <button className="relative mt-4 inline-block px-6 py-3 overflow-hidden text-sm font-medium text-white border border-white group bg-transparent">
+  {/* White background slides in on hover */}
+  <span className="absolute inset-0 bg-white transition-all duration-300 ease-in-out transform -translate-x-full group-hover:translate-x-0"></span>
+
+  {/* Text turns black when white background appears */}
+  <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+    VIEW PRODUCTS
+  </span>
+</button>
+
+      </div>
+    </div>
   </div>
 </div>
 
+     
 
+   {/* Policy Section */}
+<div className="bg-white py-16 px-4">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+    
+    {/* Secure Payment */}
+    <div className="flex flex-col items-center">
+      <FaShieldAlt className="text-2xl text-black mb-3" />
+      <h4 className="text-lg font-semibold">Secure Payment</h4>
+      <p className="text-gray-600 text-sm">At Raw Radicals, we ensure secure payments with advanced encryption, protecting your financial details every step of the way.</p>
+    </div>
+
+    {/* Fast Delivery */}
+    <div className="flex flex-col items-center">
+      <FaShippingFast className="text-2xl text-black mb-3" />
+      <h4 className="text-lg font-semibold">Fast Delivery</h4>
+      <p className="text-gray-600 text-sm">At Raw Radicals, we ensure secure payments with advanced encryption, protecting your financial details every step of the way.</p>
+    </div>
+
+    {/* Easy Returns */}
+    <div className="flex flex-col items-center">
+      <FaUndo className="text-2xl text-black mb-3" />
+      <h4 className="text-lg font-semibold">Easy Returns</h4>
+      <p className="text-gray-600 text-sm">At Raw Radicals, we offer easy returns, making sure you can shop with confidence and return items hassle-free.</p>
+    </div>
+
+  </div>
+</div>
 
 </div>
 
-    </div>
-  );
-};
+    
 
-export default Home;
+  )
+}
+
+export default Home

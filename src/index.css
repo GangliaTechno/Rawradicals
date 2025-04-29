@@ -1,4 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import "tailwindcss";
+
 
 
 /* Add this at the top of your index.css or App.css file */
@@ -13,5 +17,45 @@
   }
   
   .animate-marquee {
-    animation: marquee 5s linear infinite;
+    animation: marquee 10s linear infinite;
   }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+
+
+  body {
+    font-family: 'Proxima Nova', sans-serif;
+  }
+
+  
+  @font-face {
+    font-family: 'Proxima Nova';
+    src: url('/fonts/proximanova_regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @keyframes zoomIn {
+    0% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .zoom-in {
+    animation: zoomIn 1s ease-out forwards;
+  }
+  
+  
