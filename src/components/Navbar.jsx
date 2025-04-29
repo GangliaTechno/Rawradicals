@@ -1,13 +1,14 @@
-import { useState, useEffect, useRef } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
 import {
-  FaSearch,
-  FaUser,
-  FaShoppingCart,
   FaBars,
   FaChevronDown,
+  FaSearch,
+  FaShoppingCart,
+  FaUser,
 } from 'react-icons/fa'
+import { Link, useNavigate } from 'react-router-dom'
 import Cart from './cart'
+
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -84,11 +85,11 @@ const Navbar = () => {
               HOME
             </Link>
 
-            <Link to="/contactus" className="hover:text-gray-600">
+            <Link to="/ourteam" className="hover:text-gray-600">
               SUITCASE
             </Link>
 
-            <Link to="/contactus" className="hover:text-gray-600">
+            <Link to="/aboutbrand" className="hover:text-gray-600">
               BAGS
             </Link>
 
