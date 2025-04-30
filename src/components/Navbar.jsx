@@ -1,14 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import {
-  FaBars,
-  FaChevronDown,
-  FaSearch,
-  FaShoppingCart,
-  FaUser,
-} from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom'
+import { FaBars, FaChevronDown } from 'react-icons/fa'
+import { PiShoppingCartSimpleLight } from 'react-icons/pi'
+import { CiUser, CiSearch } from 'react-icons/ci'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import Cart from './cart'
-
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -21,6 +16,7 @@ const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false)
   const dropdownRef = useRef(null)
   const navigate = useNavigate()
+  const location = useLocation()
 
   const openCart = () => setIsCartOpen(true)
   const closeCart = () => setIsCartOpen(false)
@@ -33,30 +29,41 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  // Determine if current route should have dynamic navbar effect
+  const dynamicNavbarRoutes = ['/', '/ourteam']
+  const isDynamicNavbar = dynamicNavbarRoutes.includes(location.pathname)
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsDropdownOpen(false)
       }
     }
+
     const handleOnScroll = () => {
-      setIsScrolling(window.scrollY > 20)
+      if (isDynamicNavbar) {
+        setIsScrolling(window.scrollY > 20)
+      }
     }
-    window.addEventListener('scroll', handleOnScroll)
+
+    if (isDynamicNavbar) {
+      window.addEventListener('scroll', handleOnScroll)
+    }
+
     document.addEventListener('click', handleClickOutside)
     return () => {
       document.removeEventListener('click', handleClickOutside)
       window.removeEventListener('scroll', handleOnScroll)
     }
-  }, [])
+  }, [isDynamicNavbar])
 
-  const isActive = isScrolling || isHovered
+  const isActive = isDynamicNavbar ? isScrolling || isHovered : true
 
   return (
     <>
       <header
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={() => isDynamicNavbar && setIsHovered(true)}
+        onMouseLeave={() => isDynamicNavbar && setIsHovered(false)}
         className={`fixed w-full top-0 z-50 transition-all duration-300 ${
           isActive
             ? 'bg-white text-black shadow-md'
@@ -65,12 +72,19 @@ const Navbar = () => {
       >
         <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-20">
           {/* Left - Logo */}
-          <div className="flex-shrink-0 font-serif font-black text-[28px] md:text-[32px] leading-tight">
+          <div className="flex items-center flex-shrink-0">
             <Link
               to="/"
-              className={`${isActive ? 'text-black' : 'text-white'}`}
+              className={`flex items-center space-x-2 ${
+                isActive ? 'text-black' : 'text-white'
+              }`}
             >
-              <div className="flex flex-col leading-none">
+              <img
+                src={isActive ? '/images/logo.png' : '/images/logo2.png'}
+                alt="Raw Radicles Logo"
+                className="h-10 w-auto transition-all duration-300"
+              />
+              <div className="flex flex-col leading-none font-serif font-black text-[28px] md:text-[32px]">
                 <span className="normal-case">raw.</span>
                 <span className="uppercase font-light text-[5px] md:text-[14px] tracking-[0.50em]">
                   RADICLES
@@ -80,19 +94,16 @@ const Navbar = () => {
           </div>
 
           {/* Center - Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6 text-sm font-medium">
+          <nav className="hidden md:flex space-x-6 text-sm font-medium absolute left-1/2 transform -translate-x-1/2">
             <Link to="/" className="hover:text-gray-600">
               HOME
             </Link>
-
             <Link to="/ourteam" className="hover:text-gray-600">
               SUITCASE
             </Link>
-
-            <Link to="/Products" className="hover:text-gray-600">
+            <Link to="/products" className="hover:text-gray-600">
               BAGS
             </Link>
-
             <Link to="/contactus" className="hover:text-gray-600">
               CONTACT US
             </Link>
@@ -100,20 +111,20 @@ const Navbar = () => {
 
           {/* Right - Icons */}
           <div className="flex items-center space-x-5">
-            <button className="hover:text-gray-600 hidden md:block">
-              <FaSearch />
+            <button className="hover:text-gray-600 hidden md:block text-xl">
+              <CiSearch />
             </button>
             <button
               onClick={handleUserClick}
-              className="hover:text-gray-600 hidden md:block"
+              className="hover:text-gray-600 hidden md:block text-xl"
             >
-              <FaUser />
+              <CiUser />
             </button>
             <button
               onClick={openCart}
-              className="hover:text-gray-600 relative hidden md:block"
+              className="hover:text-gray-600 relative hidden md:block text-xl"
             >
-              <FaShoppingCart />
+              <PiShoppingCartSimpleLight />
             </button>
 
             {/* Currency */}
@@ -137,7 +148,6 @@ const Navbar = () => {
                 <span>{currency} $</span>
                 <FaChevronDown size={12} />
               </button>
-
               <div className="absolute hidden group-hover:block bg-white text-black shadow-md mt-2 rounded-md w-32 z-10">
                 {['USD', 'INR', 'EUR', 'JPY'].map((cur) => (
                   <button
@@ -182,9 +192,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div
-            className={`md:hidden bg-black/80 text-white flex flex-col items-center space-y-4 py-4 transition-all duration-300`}
-          >
+          <div className="md:hidden bg-black/80 text-white flex flex-col items-center space-y-4 py-4 transition-all duration-300">
             <Link to="/" className="hover:text-gray-400" onClick={toggleMenu}>
               HOME
             </Link>

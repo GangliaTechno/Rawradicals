@@ -1,6 +1,9 @@
 import { FaShieldAlt, FaShippingFast, FaUndo } from 'react-icons/fa'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { IoShieldHalfOutline } from "react-icons/io5";
+import { CiDeliveryTruck } from "react-icons/ci";
+import { HiArrowUturnLeft } from "react-icons/hi2";
 
 
 const Home = () => {
@@ -234,21 +237,21 @@ const Home = () => {
     
     {/* Secure Payment */}
     <div className="flex flex-col items-center">
-      <FaShieldAlt className="text-2xl text-black mb-3" />
+      <IoShieldHalfOutline className="text-xl text-black mb-3 font-thin" />
       <h4 className="text-lg font-semibold">Secure Payment</h4>
       <p className="text-gray-600 text-sm">At Raw Radicals, we ensure secure payments with advanced encryption, protecting your financial details every step of the way.</p>
     </div>
 
     {/* Fast Delivery */}
     <div className="flex flex-col items-center">
-      <FaShippingFast className="text-2xl text-black mb-3" />
+      <CiDeliveryTruck className="text-3xl text-black mb-1 font-thin" />
       <h4 className="text-lg font-semibold">Fast Delivery</h4>
       <p className="text-gray-600 text-sm">At Raw Radicals, we ensure secure payments with advanced encryption, protecting your financial details every step of the way.</p>
     </div>
 
     {/* Easy Returns */}
     <div className="flex flex-col items-center">
-      <FaUndo className="text-2xl text-black mb-3" />
+      <HiArrowUturnLeft className="text-xl text-black mb-3 font-thin" />
       <h4 className="text-lg font-semibold">Easy Returns</h4>
       <p className="text-gray-600 text-sm">At Raw Radicals, we offer easy returns, making sure you can shop with confidence and return items hassle-free.</p>
     </div>
