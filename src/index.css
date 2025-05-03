@@ -1,34 +1,30 @@
-@tailwind base;
-@tailwind components;
+
 @tailwind utilities;
 @import "tailwindcss";
+
+
 
 
 
 /* Add this at the top of your index.css or App.css file */
 
 @keyframes marquee {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+  0% {
+    transform: translateX(0%);
   }
-  
-  .animate-marquee {
-    animation: marquee 10s linear infinite;
+  100% {
+    transform: translateX(-100%);
   }
+}
 
-  @keyframes marquee {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  
+.animate-marquee {
+  display: flex;
+  animation: marquee 600s linear infinite;
+}
+
+.marquee span {
+  white-space: nowrap;
+}
 
 
   body {

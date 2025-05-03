@@ -1,28 +1,28 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react'
+import { motion } from 'framer-motion'
 
 const teamMembers = [
   {
-    name: "Dr. Dasharathraj K Shetty",
-    role: "Mentor",
-    image: "/images/dr.jpeg",
+    name: 'Dr. Dasharathraj K Shetty',
+    role: 'Mentor',
+    image: '/images/dr.jpeg',
   },
   {
-    name: "Mr. Namesh Malarout",
-    role: "Chief Marketing Officer",
-    image: "/images/namesh.jpeg",
+    name: 'Mr. Namesh Malarout',
+    role: 'Chief Marketing Officer',
+    image: '/images/namesh.jpeg',
   },
   {
-    name: "Shreepathy Ranga Bhatta",
-    role: "Managing Director",
-    image: "/images/sree.jpeg",
+    name: 'Shreepathy Ranga Bhatta',
+    role: 'Managing Director',
+    image: '/images/sree.jpeg',
   },
   {
-    name: "Ms. Staissy Salu",
-    role: "Chief Operating Officer (COO)",
-    image: "/images/stais.jpeg",
+    name: 'Ms. Staissy Salu',
+    role: 'Chief Operating Officer',
+    image: '/images/stais.jpeg',
   },
-];
+]
 
 export default function OurTeam() {
   return (
@@ -33,7 +33,7 @@ export default function OurTeam() {
       <div className="bg-gradient-to-b from-black/80 to-black/90 min-h-screen py-20 px-4 md:px-8">
         <div className="max-w-6xl mx-auto text-center mb-16">
           <motion.h2
-            className="text-5xl md:text-6xl font-extrabold text-white tracking-wide uppercase"
+            className="mt-12 text-5xl md:text-6xl font-extrabold text-white tracking-wide uppercase"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -49,7 +49,8 @@ export default function OurTeam() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            The faces behind Raw Radicals who are redefining wellness with passion, expertise, and authenticity.
+            The faces behind Raw Radicals who are redefining wellness with
+            passion, expertise, and authenticity.
           </motion.p>
         </div>
 
@@ -81,5 +82,5 @@ export default function OurTeam() {
         </div>
       </div>
     </div>
-  );
+  )
 }

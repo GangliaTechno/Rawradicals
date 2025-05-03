@@ -139,7 +139,7 @@ export default function ProductPage() {
   ];
 
   return (
-    <div className="bg-gray-100 text-black min-h-screen p-4 sm:p-6 mt-15 uppercase tracking-widest ">
+    <div className="bg-gray-100 text-black min-h-screen p-30 sm:p-6 mt-15 uppercase tracking-widest ">
       {/* Mobile Toolbar */}
       <div className="sm:hidden flex justify-between items-center gap-2 mb-4 border border-gray-700 rounded p-2 shadow bg-gray-100">
         <button
@@ -171,7 +171,7 @@ export default function ProductPage() {
       </div>
 
       {/* Desktop Toolbar */}
-      <div className="hidden sm:flex sticky top-16 bg-gray-100 z-40 mb-4 border-b border-gray-300 p-3">
+      <div className="hidden sm:flex sticky top-16 bg-gray-100 p-5  z-40 mb-4 border-b border-gray-300 p-3">
         <div className="flex items-center justify-between flex-wrap gap-4 w-full">
           <div className="flex gap-2">
             <button

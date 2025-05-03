@@ -3,33 +3,26 @@ import {
   FaFacebookF,
   FaInstagram,
   FaPinterestP,
-  FaYoutube,
   FaTiktok,
+  FaYoutube,
 } from 'react-icons/fa';
 
 const RawRadicalsFooter = () => {
   return (
-    <footer className="bg-black text-white py-10 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
-        
-        {/* About with Logo and Company Info */}
-        <div className="space-y-4 col-span-1">
-          <div className="flex items-center space-x-3">
+    <footer className="bg-black text-white py-10 px-6 md:px-30">
+      <div className="max-w-8xl mx-auto flex flex-wrap md:flex-nowrap justify-between gap-8">
+
+
+        {/* Column 1: About */}
+        <div className="basis-full md:basis-[25%] space-y-4">
+          <div className="flex  space-x-1">
             <img
               src="/images/logo_2.png"
               alt="Raw Radicals Logo"
               className="h-40 w-40 object-contain"
             />
-            
           </div>
           <p className="text-xs mt-2">A premium luggage company.</p>
-
-          {/* Contact Info */}
-          <div className="text-xs space-y-1 mt-4">
-            <p>Phone: (+91) 81097 82903</p>
-            <p>Headquarters: Manipal, Karnataka, India</p>
-            <p>Email: <a href="mailto:director@rawradicals.in" className="underline hover:text-gray-400">director@rawradicals.in</a></p>
-          </div>
 
           {/* Social Media */}
           <div className="flex space-x-3 mt-4">
@@ -41,8 +34,8 @@ const RawRadicalsFooter = () => {
           </div>
         </div>
 
-        {/* Info Links */}
-        <div className="col-span-1">
+        {/* Column 2: Info */}
+        <div className="basis-full md:basis-[18%]">
           <h4 className="font-semibold text-sm mb-3">INFO</h4>
           <ul className="space-y-2 text-xs">
             <li><a href="#" className="hover:underline">M Rewards</a></li>
@@ -56,18 +49,23 @@ const RawRadicalsFooter = () => {
           </ul>
         </div>
 
-        {/* Business Links */}
-        <div className="col-span-1">
+        {/* Column 3: Business */}
+        <div className="basis-full md:basis-[18%]">
           <h4 className="font-semibold text-sm mb-3">BUSINESS</h4>
           <ul className="space-y-2 text-xs">
             <li><a href="#" className="hover:underline">Collaboration</a></li>
             <li><a href="#" className="hover:underline">Corporate Gifting</a></li>
             <li><a href="#" className="hover:underline">Do not sell my personal information</a></li>
           </ul>
+          <div className="text-xs space-y-1 mt-4">
+            <p>Phone: (+91) 81097 82903</p>
+            <p>Headquarters: Manipal, Karnataka, India</p>
+            <p>Email: <a href="mailto:director@rawradicals.in" className="underline hover:text-gray-400">info@rawradicals.in</a></p>
+          </div>
         </div>
 
-        {/* Newsletter */}
-        <div className="col-span-2">
+        {/* Column 4: Newsletter */}
+        <div className="basis-full md:basis-[30%]">
           <h4 className="font-semibold text-sm mb-3">NEWSLETTER</h4>
           <p className="text-xs mb-4">Sign up to our newsletter to receive exclusive offers.</p>
           <form className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
@@ -88,20 +86,16 @@ const RawRadicalsFooter = () => {
             By signing up, you agree to our <a href="#" className="underline">privacy policy</a>.
           </p>
 
-          {/* Payment Icons */}
           <div className="flex space-x-2 mt-6">
-            <img src="/images/card_1.png" alt="Visa" className="h-6 object-contain" />
-            <img src="/images/card_3.png" alt="Mastercard" className="h-6 object-contain" />
-            <img src="/images/card_4.png" alt="American Express" className="h-6 object-contain" />
-            <img src="/images/card_2.png" alt="Apple Pay" className="h-6 object-contain" />
+            <img src="/images/cards.png" alt="Visa" className="h-6 object-contain" />
+
           </div>
         </div>
       </div>
 
-      {/* Bottom */}
+      {/* Footer Bottom */}
       <div className="max-w-7xl mx-auto mt-10 flex flex-col md:flex-row items-center justify-between text-xs space-y-4 md:space-y-0 border-t border-gray-700 pt-6">
         <p>© 2025 - MVST</p>
-        {/* Optional: Language selector can be added here */}
       </div>
     </footer>
   );

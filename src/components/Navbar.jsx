@@ -1,42 +1,47 @@
 import { useEffect, useRef, useState } from 'react'
+import { CiSearch, CiUser } from 'react-icons/ci'
 import { FaBars, FaChevronDown } from 'react-icons/fa'
 import { PiShoppingCartSimpleLight } from 'react-icons/pi'
-import { CiUser, CiSearch } from 'react-icons/ci'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Cart from './cart'
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false)
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false)
   const [isScrolling, setIsScrolling] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [currency, setCurrency] = useState('USD')
-  const [language, setLanguage] = useState('English')
+  const [language, setLanguage] = useState('ENGLISH')
   const [isCartOpen, setIsCartOpen] = useState(false)
-  const dropdownRef = useRef(null)
+  const currencyDropdownRef = useRef(null)
+  const languageDropdownRef = useRef(null)
   const navigate = useNavigate()
   const location = useLocation()
 
   const openCart = () => setIsCartOpen(true)
   const closeCart = () => setIsCartOpen(false)
+  const handleUserClick = () => navigate('/auth')
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
-  const handleUserClick = () => {
-    navigate('/auth')
-  }
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
-  // Determine if current route should have dynamic navbar effect
   const dynamicNavbarRoutes = ['/', '/ourteam']
   const isDynamicNavbar = dynamicNavbarRoutes.includes(location.pathname)
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (
+        currencyDropdownRef.current &&
+        !currencyDropdownRef.current.contains(event.target)
+      ) {
         setIsDropdownOpen(false)
+      }
+
+      if (
+        languageDropdownRef.current &&
+        !languageDropdownRef.current.contains(event.target)
+      ) {
+        setIsLanguageDropdownOpen(false)
       }
     }
 
@@ -64,7 +69,7 @@ const Navbar = () => {
       <header
         onMouseEnter={() => isDynamicNavbar && setIsHovered(true)}
         onMouseLeave={() => isDynamicNavbar && setIsHovered(false)}
-        className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        className={`fixed w-full top-0 z-50 transition-all duration-1300 ${
           isActive
             ? 'bg-white text-black shadow-md'
             : 'bg-transparent text-white'
@@ -93,8 +98,8 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Center - Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6 text-sm font-medium absolute left-1/2 transform -translate-x-1/2">
+          {/* Center - Desktop Nav */}
+          <nav className="hidden lg:flex space-x-6 text-sm font-medium absolute left-1/2 transform -translate-x-1/2">
             <Link to="/" className="hover:text-gray-600">
               HOME
             </Link>
@@ -111,91 +116,129 @@ const Navbar = () => {
 
           {/* Right - Icons */}
           <div className="flex items-center space-x-5">
-            <button className="hover:text-gray-600 hidden md:block text-xl">
+            {/* Currency & Language Dropdowns - Desktop Only */}
+            <div className="relative hidden lg:flex space-x-4">
+              {/* Currency Selector */}
+              <div className="relative text-sm font-medium" ref={currencyDropdownRef}>
+                <button
+                  className="flex items-center space-x-1 hover:text-gray-600 text-sm font-medium"
+                  onClick={() => setIsDropdownOpen((prev) => !prev)}
+                >
+                  <img
+                    src={`/images/${
+                      currency === 'USD'
+                        ? 'USA'
+                        : currency === 'INR'
+                        ? 'INDIA'
+                        : currency === 'EUR'
+                        ? 'EUR'
+                        : currency === 'DIR'
+                        ? 'UAE'
+                        : 'USA'
+                    }.png`}
+                    className="w-5 h-4 object-cover"
+                    alt="Flag"
+                  />
+                  <span>{currency} $</span>
+                  <FaChevronDown size={12} />
+                </button>
+
+                {isDropdownOpen && (
+                  <div className="absolute bg-white text-black shadow-md mt-2 z-10 text-sm font-medium">
+                    {['USD', 'INR', 'EUR', 'DIR'].map((cur) => (
+                      <button
+                        key={cur}
+                        onClick={() => {
+                          setCurrency(cur)
+                          setIsDropdownOpen(false)
+                        }}
+                        className="flex items-center px-4 py-2 hover:bg-gray-100 w-full"
+                      >
+                        <img
+                          src={`/images/${
+                            cur === 'USD'
+                              ? 'USA'
+                              : cur === 'INR'
+                              ? 'INDIA'
+                              : cur === 'EUR'
+                              ? 'EUR'
+                              : cur === 'DIR'
+                              ? 'UAE'
+                              : 'USA'
+                          }.png`}
+                          className="w-5 h-4 object-cover rounded-sm mr-2"
+                          alt="Flag"
+                        />
+                        {cur}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Language Selector */}
+              <div className="relative text-sm font-medium" ref={languageDropdownRef}>
+                <button
+                  className="flex items-center space-x-1 hover:text-gray-600 text-sm font-medium"
+                  onClick={() => setIsLanguageDropdownOpen((prev) => !prev)}
+                >
+                  <span>{language}</span>
+                  <FaChevronDown size={12} />
+                </button>
+
+                {isLanguageDropdownOpen && (
+                  <div className="absolute bg-white text-black shadow-md mt-2 rounded-md w-32 text-sm font-medium">
+                    {['ENGLISH', 'HINDI', 'KANNADA', 'FRENCH'].map((lang) => (
+                      <button
+                        key={lang}
+                        onClick={() => {
+                          setLanguage(lang)
+                          setIsLanguageDropdownOpen(false)
+                        }}
+                        className="flex px-4 py-2 hover:bg-gray-100 w-full"
+                      >
+                        {lang}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Search, Cart & Account - Desktop Only */}
+            <button className="hover:text-gray-600 hidden lg:block text-xl font-medium">
               <CiSearch />
             </button>
             <button
               onClick={handleUserClick}
-              className="hover:text-gray-600 hidden md:block text-xl"
+              className="hover:text-gray-600 hidden lg:block text-xl font-medium"
             >
               <CiUser />
             </button>
             <button
               onClick={openCart}
-              className="hover:text-gray-600 relative hidden md:block text-xl"
+              className="hover:text-gray-600 hidden lg:block text-xl font-medium"
             >
               <PiShoppingCartSimpleLight />
             </button>
 
-            {/* Currency */}
-            <div className="relative hidden md:block group">
-              <button className="flex items-center space-x-1 hover:text-gray-600">
-                <img
-                  src={`https://flagcdn.com/24x18/${
-                    currency.toLowerCase() === 'usd'
-                      ? 'us'
-                      : currency.toLowerCase() === 'inr'
-                      ? 'in'
-                      : currency.toLowerCase() === 'eur'
-                      ? 'eu'
-                      : currency.toLowerCase() === 'jpy'
-                      ? 'jp'
-                      : 'us'
-                  }.png`}
-                  className="w-5 h-4 object-cover rounded-sm"
-                  alt="Flag"
-                />
-                <span>{currency} $</span>
-                <FaChevronDown size={12} />
-              </button>
-              <div className="absolute hidden group-hover:block bg-white text-black shadow-md mt-2 rounded-md w-32 z-10">
-                {['USD', 'INR', 'EUR', 'JPY'].map((cur) => (
-                  <button
-                    key={cur}
-                    onClick={() => setCurrency(cur)}
-                    className="flex items-center px-4 py-2 hover:bg-gray-100 w-full"
-                  >
-                    {cur}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Language */}
-            <div className="relative hidden md:block group">
-              <button className="flex items-center space-x-1 hover:text-gray-600">
-                <span>{language}</span>
-                <FaChevronDown size={12} />
-              </button>
-              <div className="absolute hidden group-hover:block bg-white text-black shadow-md mt-2 rounded-md w-32">
-                {['English', 'Hindi', 'Kannada', 'French'].map((lang) => (
-                  <button
-                    key={lang}
-                    onClick={() => setLanguage(lang)}
-                    className="flex px-4 py-2 hover:bg-gray-100 w-full"
-                  >
-                    {lang}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Hamburger */}
+            {/* Hamburger for Tablet & Mobile */}
             <button
               onClick={toggleMenu}
-              className="md:hidden focus:outline-none"
+              className="lg:hidden focus:outline-none"
             >
               <FaBars className="text-2xl" />
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Hamburger Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-black/80 text-white flex flex-col items-center space-y-4 py-4 transition-all duration-300">
+          <div className="lg:hidden bg-black/90 text-white flex flex-col items-center space-y-4 py-4 text-sm font-medium">
             <Link to="/" className="hover:text-gray-400" onClick={toggleMenu}>
               HOME
             </Link>
+
             <button
               onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
               className="hover:text-gray-400"
@@ -220,6 +263,7 @@ const Navbar = () => {
                 </Link>
               </div>
             )}
+
             <Link
               to="/products"
               className="hover:text-gray-400"
@@ -234,12 +278,66 @@ const Navbar = () => {
             >
               CONTACT US
             </Link>
+
+               {/* Currency & Account - Mobile with Two Columns */}
+               <div className="flex justify-between w-full px-4 mt-4 text-sm font-medium">
+              {/* Currency Column */}
+              <div className="flex flex-col items-start space-y-2 text-sm font-medium">
+                <div className="relative group">
+                  <button className="flex items-center space-x-1 text-white">
+                    
+                      
+                    <span>{currency} $</span>
+                    <FaChevronDown size={12} />
+                  </button>
+                  <div className="absolute hidden group-hover:block bg-black text-white shadow-md -mt-32 text-sm font-medium">
+                    {['USD', 'INR', 'EUR', 'UAE'].map((cur) => (
+                      <button
+                        key={cur}
+                        onClick={() => setCurrency(cur)}
+                        className="flex items-center px-4 py-2 hover:bg-gray-700 w-full text-sm font-medium"
+                      >
+                       <img
+                          src={`/images/${
+                            cur === 'USD'
+                              ? 'USA'
+                              : cur === 'INR'
+                              ? 'INDIA'
+                              : cur === 'EUR'
+                              ? 'EUR'
+                              : cur === 'DIR'
+                              ? 'UAE'
+                              : 'UAE'
+                          }.png`}
+                          className="w-5 h-4 object-cover rounded-sm mr-2"
+                          alt="Flag"
+                        />
+                          
+                        {cur}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Account Column */}
+              <div className="flex flex-col items-end space-y-2 text-sm font-medium">
+                <button
+                  onClick={handleUserClick}
+                  className="flex items-center space-x-2 text-white hover:text-gray-400 text-sm font-medium"
+                >
+                  <CiUser />
+                  <span>Account</span>
+                </button>
+              </div>
+            </div>
           </div>
         )}
+          
+        
       </header>
 
-      {/* Cart */}
-      <Cart isOpen={isCartOpen} onClose={closeCart} />
+      {isCartOpen && <Cart onClose={closeCart} />}
     </>
   )
 }
