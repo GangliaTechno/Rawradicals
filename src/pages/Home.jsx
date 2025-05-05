@@ -89,6 +89,7 @@ const Home = () => {
             image="/images/collection_1.png"
             subtitle="SLEEK AND STRONG"
             title="ALUMINUM"
+            
           />
 
           {/* Carbon Fiber Card */}
@@ -148,7 +149,7 @@ const MaterialCard = ({ image, subtitle, title }) => (
     <img
       src={image}
       alt={title}
-      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-120"
     />
     <div className="absolute bottom-6 left-6 text-white">
       <p className="text-sm uppercase tracking-wide font-roboto">{subtitle}</p>

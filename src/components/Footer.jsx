@@ -60,7 +60,7 @@ const RawRadicalsFooter = () => {
           <div className="text-xs space-y-1 mt-4">
             <p>Phone: (+91) 81097 82903</p>
             <p>Headquarters: Manipal, Karnataka, India</p>
-            <p>Email: <a href="mailto:director@rawradicals.in" className="underline hover:text-gray-400">info@rawradicals.in</a></p>
+            <p>Email: <a href="mailto:director@rawradicals.in" className="underline hover:text-gray-400">info@rawradicles.com</a></p>
           </div>
         </div>
 
