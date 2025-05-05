@@ -110,7 +110,7 @@ const Navbar = () => {
               to="/aboutbrand"
               className="relative hover:text-gray-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-gray-600 hover:after:w-full after:transition-all after:duration-300"
             >
-              SUITCASE
+              ABOUT US
             </Link>
             <div
               onMouseEnter={() => setIsBagsHovered(true)}
@@ -120,7 +120,7 @@ const Navbar = () => {
                 to="/Products"
                 className="relative hover:text-gray-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-gray-600 hover:after:w-full after:transition-all after:duration-300"
               >
-                BAGS
+                CATALOG
               </Link>
               {isBagsHovered && (
                 <div
