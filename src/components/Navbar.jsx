@@ -78,16 +78,16 @@ const Navbar = () => {
         onMouseEnter={() => isDynamicNavbar && setIsHovered(true)}
         onMouseLeave={() => isDynamicNavbar && setIsHovered(false)}
         className={`fixed w-full top-0 z-50 transition-all duration-1300 ${
-          isActive ? 'bg-white text-black shadow-md' : 'bg-transparent text-white'
+          isActive ? 'bg-white text-grey-900 shadow-md' : 'bg-transparent text-white'
         } backdrop-blur-md`}
       >
-        <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-20">
+        <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-25">
           {/* Left - Logo */}
           <div className="flex items-center flex-shrink-0">
             <Link
               to="/"
               className={`flex items-center space-x-2 ${
-                isActive ? 'text-black' : 'text-white'
+                isActive ? 'text-grey-900' : 'text-white'
               }`}
             >
               <img
