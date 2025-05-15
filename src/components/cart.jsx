@@ -1,8 +1,20 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { FaTimes } from "react-icons/fa";
-import PropTypes from "prop-types";
+// src/components/Cart.jsx
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaTimes } from 'react-icons/fa';
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 const Cart = ({ isOpen, onClose }) => {
+  // 1️⃣ Pull in the cart items from Redux
+  const items = useSelector((state) => state.cart.items);
+
+  // 2️⃣ Compute the total price
+  const total = items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -19,10 +31,10 @@ const Cart = ({ isOpen, onClose }) => {
           {/* Drawer */}
           <motion.div
             className="fixed top-0 right-0 w-2/5 h-full bg-white shadow-lg z-50 flex flex-col p-6"
-            initial={{ x: "100%" }}
+            initial={{ x: '100%' }}
             animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "tween", duration: 0.3 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'tween', duration: 0.3 }}
           >
             {/* Header */}
             <div className="flex justify-between items-center mb-4">
@@ -32,54 +44,45 @@ const Cart = ({ isOpen, onClose }) => {
               </button>
             </div>
 
-            {/* Cart content (empty state for now) */}
-            {/* <div className="flex-1 overflow-y-auto text-center text-gray-500 flex items-center justify-center">
-              Your cart is currently empty.
-            </div> */}
-             <div className="flex-1 space-y-4 overflow-y-auto">
-              <div className="flex justify-between items-center border-b pb-2">
-                <div>
-                  <p className="font-medium">Product One</p>
-                  <p className="text-sm text-gray-500">Quantity: 1</p>
-                </div>
-                <p className="font-semibold">$25</p>
+            {/* Content */}
+            {items.length === 0 ? (
+              <div className="flex-1 flex items-center justify-center text-gray-500">
+                Your cart is currently empty.
               </div>
-
-              <div className="flex justify-between items-center border-b pb-2">
-                <div>
-                  <p className="font-medium">Product Two</p>
-                  <p className="text-sm text-gray-500">Quantity: 1</p>
-                </div>
-                <p className="font-semibold">$40</p>
+            ) : (
+              <div className="flex-1 space-y-4 overflow-y-auto">
+                {items.map((item) => (
+                  <div
+                    key={item.id}
+                    className="flex justify-between items-center border-b pb-2"
+                  >
+                    <div>
+                      <p className="font-medium">{item.name}</p>
+                      <p className="text-sm text-gray-500">
+                        Quantity: {item.quantity}
+                      </p>
+                    </div>
+                    <p className="font-semibold">
+                      ${(item.price * item.quantity).toFixed(2)}
+                    </p>
+                  </div>
+                ))}
               </div>
-            </div>
+            )}
 
             {/* Footer */}
             <div className="mt-6 border-t pt-4">
               <div className="flex justify-between text-lg font-semibold">
                 <span>Total</span>
-                <span>$65</span>
+                <span>${total.toFixed(2)}</span>
               </div>
               <button className="relative w-full py-3 rounded mt-4 overflow-hidden border border-black group">
-              <span className="absolute inset-0 bg-black transform scale-x-0 origin-right transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
-              <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">
-                Checkout
-              </span>
-            </button>
+                <span className="absolute inset-0 bg-black transform scale-x-0 origin-right transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+                <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">
+                  Checkout
+                </span>
+              </button>
             </div>
-
-
-
-
-            {/* Footer (optional, can show total/checkout later) */}
-            {/* <div className="mt-6 border-t pt-4"> */}
-              {/* Future: total & checkout */}
-            {/* </div> */}
-
-
-
-
-
           </motion.div>
         </>
       )}

@@ -9,16 +9,28 @@ import {
 
 const RawRadicalsFooter = () => {
   return (
-    <footer className="bg-[#0a0a0a] text-white py-10 px-6 md:px-30">
+    <footer
+      style={{ fontFamily: "Montserrat, sans-serif" }}
+      className="
+      bg-[#0a0a0a] text-white
+      px-6 sm:px-8 md:px-16 lg:px-24
+      py-5 sm:py-6
+      min-h-[250px]
+      sm:min-h-[350px]
+      md:min-h-[450px]
+      lg:min-h-[550px]
+      font-normal
+    "
+    >
 
-      <div className="max-w-8xl mx-auto flex flex-wrap md:flex-nowrap justify-between gap-8">
+      <div className="max-w-8xl mx-auto flex flex-wrap md:flex-nowrap justify-between gap-8     font-normal">
         {/* Column 1: About */}
-        <div className="basis-full md:basis-[25%] space-y-4">
+        <div className="basis-full md:basis-[25%] space-y-4 flex flex-col justify-center items-center">
           <div className="bg-[#0a0a0a] p-1 inline-block">
             <img
               src="/images/logo_2.png"
               alt="Raw Radicals Logo"
-              className="h-40 w-40 object-contain "
+              className="h-96 w-96 object-contain "
             />
           </div>
           <p className="text-xs mt-2">A premium luggage company.</p>
@@ -28,8 +40,8 @@ const RawRadicalsFooter = () => {
 
         {/* Column 2: Info */}
         <div className="basis-full md:basis-[18%]">
-          <h4 className="font-semibold text-sm mb-3">INFO</h4>
-          <ul className="space-y-2 text-xs">
+          <h4 className="font-normal text-xl mb-3 ">INFO</h4>
+          <ul className="min-h-[300px] text-sm space-y-2">
             <li>
               <a href="#" className="hover:underline">
                 M Rewards
@@ -75,8 +87,8 @@ const RawRadicalsFooter = () => {
 
         {/* Column 3: Business */}
         <div className="basis-full md:basis-[18%]">
-          <h4 className="font-semibold text-sm mb-3">BUSINESS</h4>
-          <ul className="space-y-2 text-xs">
+          <h4 className="font-normal text-xl mb-3">BUSINESS</h4>
+          <ul className="min-h-[300px] text-sm space-y-2">
             <li>
               <a href="#" className="hover:underline">
                 Collaboration
@@ -93,12 +105,13 @@ const RawRadicalsFooter = () => {
               </a>
             </li>
           </ul>
-          <div className="text-xs space-y-1 mt-4">
-            <p>Phone: (+91) 81097 82903</p>
-            <p>Headquarters: Manipal, Karnataka, India</p>
-            <p>
+          <div className="text-xs space-y-1 mt-4 font-normal">
+            <p className="font-normal" style={{ fontFamily: "Montserrat, sans-serif" }}>Phone: (+91) 81097 82903</p>
+            <p className="font-normal" style={{ fontFamily: "Montserrat, sans-serif" }}>Headquarters: Manipal, Karnataka, India</p>
+            <p className="font-normal" style={{ fontFamily: "Montserrat, sans-serif" }}>
               Email:{' '}
               <a
+                style={{ fontFamily: "Montserrat, sans-serif" }}
                 href="mailto:director@rawradicals.in"
                 className="underline hover:text-gray-400"
               >
@@ -127,7 +140,7 @@ const RawRadicalsFooter = () => {
 
         {/* Column 4: Newsletter */}
         <div className="basis-full md:basis-[30%]">
-          <h4 className="font-semibold text-sm mb-3">NEWSLETTER</h4>
+          <h4 className="font-normal text-lg mb-3">NEWSLETTER</h4>
           <p className="text-xs mb-4">
             Sign up to our newsletter to receive exclusive offers.
           </p>
@@ -140,7 +153,7 @@ const RawRadicalsFooter = () => {
             />
             <button
               type="submit"
-              className="bg-white text-black font-semibold text-sm py-2 px-6 rounded-md hover:bg-gray-300"
+              className="bg-white text-black font-normal text-sm py-2 px-6 rounded-md hover:bg-gray-300"
             >
               SUBSCRIBE
             </button>
@@ -164,7 +177,7 @@ const RawRadicalsFooter = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="max-w-7xl mx-auto mt-10 flex items-center justify-center text-xs space-y-4 md:space-y-0 border-t border-gray-700 pt-6">
+      <div style={{ fontFamily: "Montserrat, sans-serif" }} className="max-w-7xl mx-auto mt-10 flex items-center justify-center text-xs space-y-4 md:space-y-0 border-t border-gray-700 pt-6">
         <p>© 2025 - MVST</p>
       </div>
     </footer>

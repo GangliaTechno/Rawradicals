@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 @tailwind utilities;
 @import "tailwindcss";
 
@@ -6,52 +6,192 @@
 
 
 
-/* Add this at the top of your index.css or App.css file */
+/* =============================================================================
+   Font-Face Declarations & Base Typography
+   ============================================================================= */
+/* Proxima Nova (local fallback) */
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/fonts/proximanova_regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
 
-@keyframes marquee {
+/* Apply default body font */
+body {
+  font-family: 'Proxima Nova', sans-serif;
+}
+
+/* Utility class for Montserrat */
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* =============================================================================
+   Layout & Scrolling Utilities
+   ============================================================================= */
+/* Hide native scrollbars (Chrome, Safari, Opera) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide native scrollbars (IE, Edge, Firefox) */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* =============================================================================
+   Image Utilities
+   ============================================================================= */
+/* Fade-in + zoom-out effect for images */
+.img-scale {
+  will-change: transform, opacity;
+  animation: fadeInZoom 1s ease-in-out both;
+}
+
+/* =============================================================================
+   Component: Marquee
+   ============================================================================= */
+.marquee {
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  color: #fff;
+}
+
+.marquee__content {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 150s linear infinite;
+}
+
+/* =============================================================================
+   Component: Arrow Button Hover
+   ============================================================================= */
+/* Arrow bounce/fade cycle */
+@keyframes arrowCycle {
   0% {
-    transform: translateX(0%);
+    transform: translateY(0);
+    opacity: 1;
+  }
+  33% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  34% {
+    transform: translateY(-10px);
+    opacity: 0;
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-.animate-marquee {
-  display: flex;
-  animation: marquee 600s linear infinite;
-}
-
-.marquee span {
-  white-space: nowrap;
+/* Trigger arrowCycle on hover */
+.arrow-button:hover .arrow-icon {
+  animation: arrowCycle 0.4s ease-in-out forwards;
 }
 
 
-  body {
-    font-family: 'Proxima Nova', sans-serif;
-  }
-
-  
-  @font-face {
-    font-family: 'Proxima Nova';
-    src: url('/fonts/proximanova_regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  @keyframes zoomIn {
+/* -----------------------------------------------------------------------------
+   Horizontal arrow bounce: left → right
+   ----------------------------------------------------------------------------- */
+   @keyframes arrowCycleL2R {
     0% {
-      transform: scale(1.0);
+      transform: translateX(0);
+      opacity: 1;
+    }
+    33% {
+      transform: translateX(10px);
+      opacity: 0;
+    }
+    34% {
+      /* jump instantly back to start */
+      transform: translateX(-10px);
       opacity: 0;
     }
     100% {
-      transform: scale(1.15); /* smaller zoom */
+      transform: translateX(0);
       opacity: 1;
     }
   }
   
-  .zoom-in {
-    animation: zoomIn 1s ease-out forwards;
+  /* Trigger left→right on hover of an “ltr” variant */
+  .arrow-button–ltr:hover .arrow-icon {
+    animation: arrowCycleL2R 0.4s ease-in-out forwards;
   }
   
   
+  /* -----------------------------------------------------------------------------
+     Horizontal arrow bounce: right → left
+     ----------------------------------------------------------------------------- */
+  @keyframes arrowCycleR2L {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    33% {
+      transform: translateX(-10px);
+      opacity: 0;
+    }
+    34% {
+      /* jump instantly back to far side */
+      transform: translateX(10px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Trigger right→left on hover of an “rtl” variant */
+  .arrow-button–rtl:hover .arrow-icon {
+    animation: arrowCycleR2L 0.4s ease-in-out forwards;
+  }
+
+/* =============================================================================
+   Reusable Animations
+   ============================================================================= */
+/* Fade-in + zoom animation */
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Zoom-in effect */
+@keyframes zoomIn {
+  0% {
+    transform: scale(1.0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* Utility class to apply zoomIn */
+.zoom-in {
+  animation: zoomIn 1s ease-out forwards;
+}
+
+/* =============================================================================
+   Keyframes: Marquee Scroll
+   ============================================================================= */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

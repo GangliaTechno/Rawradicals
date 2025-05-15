@@ -30,18 +30,20 @@ function App() {
 
   return (
     <BrowserRouter>
+
       <Navbar onCartClick={handleCartOpen} />
+
       <Cart isOpen={isCartOpen} onClose={handleCartClose} />
       <div className="App">
         <Routes>
-          <Route path="/auth" element={<Auth/>} />
-          <Route path="/" element={<Home/>} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/" element={<Home />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/ourteam" element={<OurTeam />} />
           <Route path="/aboutbrand" element={<AboutBrand />} />
           <Route path="/Products" element={<Products />} />
-          <Route path="/blog" element={<Blog/>}/>
-          <Route path="/contactus" element={<ContactUs/>}/>
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contactus" element={<ContactUs />} />
           <Route path="/productDetails/:id" element={<ProductsDetails />} /> {/* Ensure the path and component name match */}
         </Routes>
       </div>
